@@ -13152,7 +13152,7 @@ $( document ).ready(code_toggle);
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">md_str</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
@@ -13238,6 +13238,7 @@ $( document ).ready(code_toggle);
            <span class="p">)</span>
 <span class="c1">#print(md_str)</span>
 <span class="c1">#md_str+=&#39;\n&#39;</span>
+<span class="n">md_str</span><span class="o">+=</span><span class="s1">&#39;------------&#39;</span>
 <span class="n">printmd</span><span class="p">(</span><span class="n">md_str</span><span class="p">)</span>
 
 <span class="n">printmd</span><span class="p">(</span><span class="s1">&#39;# Project </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -13260,10 +13261,6 @@ $( document ).ready(code_toggle);
 <span class="n">md_str</span> <span class="o">+=</span> <span class="s1">&#39;-------------------&#39;</span>    
 <span class="n">printmd</span><span class="p">(</span><span class="n">md_str</span><span class="p">)</span>
 
-
-
-<span class="n">md_str</span><span class="o">+=</span><span class="s1">&#39;------------&#39;</span>
-<span class="n">printmd</span><span class="p">(</span><span class="n">md_str</span><span class="p">)</span>
 
 <span class="n">printmd</span><span class="p">(</span><span class="s1">&#39;# Talk &amp; Lecture </span><span class="se">\n</span><span class="s1"> &#39;</span><span class="p">)</span>
 <span class="n">md_str</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
@@ -13336,7 +13333,7 @@ $( document ).ready(code_toggle);
 <li><strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Sunju Park, Sang-Wook Kim. A Data Layout with Good Data Locality for Single-Machine based Graph Engines. <em>nan</em>. submitted. pp. nan. nan</li>
 <li><strong>Yong-Yeon Jo</strong>, Young Sang Choi, Hyo-Eun Kim, Kyounglan Ko, Chan Wha Lee, Hyo Soung Cha, and Yul Hwangbo. Impact of Image Compression on Deep Learning-based Mammogram Classification Performance. <em>nan</em>. submitted. pp. nan. nan</li>
 <li><strong>Yong-Yeon Jo</strong>, Jai Hong Han, Hyun Woo Park, Hyojung Jung, Jaedong Lee, Jipmin Jung, Hyo Soung Cha, Dae Kyung Sohn, Yul Hwangbo. Prediction of the prolonged length of hospital stay after cancer surgery using the machine learning on electronic health records: Retrospective cross-sectional study. <em>nan</em>. submitted. pp. nan. nan</li>
-<li>Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehyuk Cha, Wan D. Bae, and Sang-Wook Kim. FORESEE: An Effective Efficient Framework for Estimating the Execution Times of IO Traces on the SSD. <em>IEEE Transactions on Computers</em>. Accepted to be appared. pp. nan. nan</li>
+<li>Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehyuk Cha, Wan D. Bae, and Sang-Wook Kim. FORESEE: An Effective Efficient Framework for Estimating the Execution Times of IO Traces on the SSD. <em>IEEE Transactions on Computers</em>. Accepted to be appared. pp. nan. 2020.0</li>
 <li><strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Sang-Wook Kim, and Kyungsik Han. Efficient processing of recommendation algorithms on a single-machine-based graph engine. <em>Journal of Supercomputing</em>. Vol. 76. pp. 7985–8002. 2018.07</li>
 <li><strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, Sung-Woo Cho, Duck-Ho Bae, and Hyunok Oh. High-performance data mining with intelligent SSD. <em>Journal of Cluster Computing</em>. Vol. 20 No. 2. pp. 1155-1166. 2017.02</li>
 <li>Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehhyuk Cha, Sang-Wook Kim, and Young Kyun Shin. The uFLIP benchmark revisited for evaluating SSDs. <em>Journal of Communication Systems</em>. Vol. 29. pp. 2100-2111. 2016.09</li>
@@ -13384,6 +13381,7 @@ $( document ).ready(code_toggle);
 <li><strong>조용연</strong>, 배덕호, 김상욱. GPU기반 희소행렬 곱셈의 성능 분석. <em>한국통신학회 동계종합학술발표회</em>. pp. 354-355. 2013.01.30-2013.02.01</li>
 <li><strong>조용연</strong>, 배덕호, 김상욱. GPU를 이용한 그래프에서 링크 기반 유사도 계산 방안의 성능 평가. <em>한국정보과학회 추계학술발표대회</em>. pp. 346-347. 2011.06.29-2011.07.01</li>
 </ol>
+<hr>
 
 </div>
 
@@ -13397,53 +13395,6 @@ $( document ).ready(code_toggle);
 
 <div class="output_markdown rendered_html output_subarea ">
 <h1 id="Project">Project<a class="anchor-link" href="#Project">&#182;</a></h1>
-</div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<ul>
-<li>An Open Source Medical Imaging Project for Artificial Intelligence Applications in Digital Healthcare. National Cancer Center. 2020.06-2020.11<ul>
-<li>질병 진단용 인공지능 이미지 데이터 구축 사업 - 유방암 및 감염병 질환 진단을 위한 의료 영상 구축 사업, 정보화진흥원</li>
-</ul>
-</li>
-<li>Medical image data open project for developing and advancing artificial intelligence technology. National Cancer Center. 2019.05-2020.11<ul>
-<li>인공지능 기술 육성 및 활성화를 위한 의료영상 공개사업, 정보화진흥원</li>
-</ul>
-</li>
-<li>Prediction and analysis of the length of stay for cancer patients using big data mining. National Cancer Center. 2018.05-2019.07<ul>
-<li>빅 데이터 마이닝을 활용한 암수술환자의 재원 기간 예측 및 분석, 국립암센터</li>
-</ul>
-</li>
-<li>Development of parameter server for efficient distributed deep learning. Hanyang University. 2017.09-2018.02<ul>
-<li>효율적인 분산 딥 러닝을 위한 파라미터 서버 기술 개발, 한양대학교-SK</li>
-</ul>
-</li>
-<li>Platform for large-scale graph processing based on SSD array. Hanyang University. 2015.07-2018.02<ul>
-<li>SSD 기반의 그래프 빅 데이터 처리 플랫폼 기술개발, 한양대학교-삼성전자</li>
-</ul>
-</li>
-<li>Development of core software technology for big data mining in social and information networks. Hanyang University. 2014.11-2017.10<ul>
-<li>소셜 및 정보 네트워크 빅 데이터 마이닝 소프트웨어 원천 기술 개발, 한국연구재단</li>
-</ul>
-</li>
-<li>Research for big data management system on enterprise SSD. Hanyang University. 2012.12-2014.11<ul>
-<li>대용량 데이터베이스 관리를 위한 고성능 Enterprise SSD 연구, 한양대학교-하이닉스</li>
-</ul>
-</li>
-<li>Development of active SSD platform for high performance of data mining. Hanyang University. 2011.07-2015.06<ul>
-<li>고성능 데이터 마이닝을 위한 미래형 Active SSD 플랫폼 기술 개발, 한양대학교-삼성전자</li>
-</ul>
-</li>
-</ul>
-<hr>
-
 </div>
 
 </div>
