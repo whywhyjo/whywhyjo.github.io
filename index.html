@@ -13017,58 +13017,6 @@ ul.typeahead-list  > li > a.pull-right {
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
-<style type="text/css">
-    
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-
-    </style>
-<style type="text/css">
-    /*This file contains any manual css for this page that needs to override the global styles.
-This is only required when different pages style the same element differently. This is just
-a hack to deal with our current css styles and no new styling should be added in this file.*/
-
-#ipython-main-app {
-    position: relative;
-}
-#jupyter-main-app {
-    position: relative;
-}
-
-    </style>
 
 
 <style type="text/css">
@@ -13143,7 +13091,7 @@ $( document ).ready(code_toggle);
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
 <span class="k">def</span> <span class="nf">printmd</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
     <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">string</span><span class="p">))</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -13164,13 +13112,13 @@ $( document ).ready(code_toggle);
 </li>
 <li><p><strong>Address</strong>:</p>
 <ul>
-<li>HealthCare AI Team, National Cancer Center, 323 Ilsan-ro, Ilsandong-gu, Goyang-si Gyeonggi-do 10408, Republic of Korea </li>
-<li>경기도 고양시 일산동구 일산로 323, 국립암센터</li>
+<li>533, Eonju-ro, Gangnam-gu, Seoul, 06138, Republic of Korea </li>
+<li>서울특별시 강남구 역삼동 언주로 533</li>
 </ul>
 </li>
 <li><p><strong>Research Interest</strong></p>
 <ul>
-<li>Data science, Healthcare, Deep learning, High performance computing</li>
+<li>Healthcare, Biosignal, Electrocardiogram, Deep learning, Data mining</li>
 </ul>
 </li>
 </ul>
@@ -13178,8 +13126,9 @@ $( document ).ready(code_toggle);
 
 <hr>
 <h2 id="Experience">Experience<a class="anchor-link" href="#Experience">&#182;</a></h2><ul>
-<li>Researcher, HealthCare AI Team, National Cancer Center, Republic of Korea: 2018.03-Present</li>
-<li>Visiting Scholar, Baylor University, Texas, United States: 2016.08~09</li>
+<li>Manager, Data R&amp;D Team, Lifesemantics, Republic of Korea: 2020.09-Present</li>
+<li>Researcher, HealthCare AI Team, National Cancer Center, Republic of Korea: 2018.03-2020.09</li>
+<li>Visiting Scholar, Baylor University, Texas, United States: 2016.08-2016.09</li>
 </ul>
 <hr>
 <h2 id="Education">Education<a class="anchor-link" href="#Education">&#182;</a></h2><ul>
@@ -13203,33 +13152,10 @@ $( document ).ready(code_toggle);
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">md_str</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
-
-<span class="n">printmd</span><span class="p">(</span><span class="s1">&#39;# Project </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">md_str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-<span class="n">df_pj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Resume.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;Project&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_pj</span><span class="p">)):</span>
-    <span class="c1">#title = &#39;&#39;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;PERIOD&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;Present&#39;</span><span class="p">)</span> <span class="o">&gt;-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;__&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;TITLE_ENG&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;__&#39;</span>
-        <span class="n">period</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;PERIOD&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Present&#39;</span><span class="p">,</span><span class="s1">&#39;*Present*&#39;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span> 
-        <span class="n">title</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;TITLE_ENG&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-        <span class="n">period</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;PERIOD&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
-    <span class="n">md_str</span><span class="o">+=</span> <span class="p">(</span><span class="s1">&#39;- &#39;</span><span class="o">+</span> <span class="n">title</span> <span class="o">+</span>
-              <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;Institute_eng&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> 
-              <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="n">period</span> <span class="o">+</span>
-              <span class="s1">&#39;</span><span class="se">\n\t</span><span class="s1">- &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;TITLE_KOR&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
-              <span class="s1">&#39;, &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;Institute&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-    
-<span class="n">md_str</span> <span class="o">+=</span> <span class="s1">&#39;-------------------&#39;</span>    
-<span class="n">printmd</span><span class="p">(</span><span class="n">md_str</span><span class="p">)</span>
-
-
-<span class="n">md_str</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
 <span class="n">printmd</span><span class="p">(</span><span class="s1">&#39;# Publication&#39;</span><span class="p">)</span>
 
 <span class="c1">############## Journal ##############</span>
@@ -13312,6 +13238,28 @@ $( document ).ready(code_toggle);
            <span class="p">)</span>
 <span class="c1">#print(md_str)</span>
 <span class="c1">#md_str+=&#39;\n&#39;</span>
+<span class="n">printmd</span><span class="p">(</span><span class="n">md_str</span><span class="p">)</span>
+
+<span class="n">printmd</span><span class="p">(</span><span class="s1">&#39;# Project </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">md_str</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+<span class="n">df_pj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Resume.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;Project&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_pj</span><span class="p">)):</span>
+    <span class="c1">#title = &#39;&#39;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;PERIOD&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;Present&#39;</span><span class="p">)</span> <span class="o">&gt;-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;__&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;TITLE_ENG&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;__&#39;</span>
+        <span class="n">period</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;PERIOD&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Present&#39;</span><span class="p">,</span><span class="s1">&#39;*Present*&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="n">title</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;TITLE_ENG&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">period</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;PERIOD&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">md_str</span><span class="o">+=</span> <span class="p">(</span><span class="s1">&#39;- &#39;</span><span class="o">+</span> <span class="n">title</span> <span class="o">+</span>
+              <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;Institute_eng&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> 
+              <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="n">period</span> <span class="o">+</span>
+              <span class="s1">&#39;</span><span class="se">\n\t</span><span class="s1">- &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;TITLE_KOR&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
+              <span class="s1">&#39;, &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;Institute&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+<span class="n">md_str</span> <span class="o">+=</span> <span class="s1">&#39;-------------------&#39;</span>    
+<span class="n">printmd</span><span class="p">(</span><span class="n">md_str</span><span class="p">)</span>
+
 
 
 <span class="n">md_str</span><span class="o">+=</span><span class="s1">&#39;------------&#39;</span>
@@ -13371,6 +13319,83 @@ $( document ).ready(code_toggle);
 
 
 <div class="output_markdown rendered_html output_subarea ">
+<h1 id="Publication">Publication<a class="anchor-link" href="#Publication">&#182;</a></h1>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h3 id="International-Journal"><strong>International Journal</strong><a class="anchor-link" href="#International-Journal">&#182;</a></h3><ol>
+<li><strong>Yong-Yeon Jo</strong>, Jong-Hwan Jang, Joon-Myoung Kwon, Hyung-Chul Lee, Chul-Woo Jung, Seonjeong Byun and Han‐Gil Jeong. Predicting Intraoperative Hypotension Using Deep Learning with Waveforms of Arterial Blood Pressure, Electroencephalogram, and Electrocardiogram. <em>nan</em>. submitted. pp. nan. nan</li>
+<li><strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Sunju Park, Sang-Wook Kim. A Data Layout with Good Data Locality for Single-Machine based Graph Engines. <em>nan</em>. submitted. pp. nan. nan</li>
+<li><strong>Yong-Yeon Jo</strong>, Young Sang Choi, Hyo-Eun Kim, Kyounglan Ko, Chan Wha Lee, Hyo Soung Cha, and Yul Hwangbo. Impact of Image Compression on Deep Learning-based Mammogram Classification Performance. <em>nan</em>. submitted. pp. nan. nan</li>
+<li><strong>Yong-Yeon Jo</strong>, Jai Hong Han, Hyun Woo Park, Hyojung Jung, Jaedong Lee, Jipmin Jung, Hyo Soung Cha, Dae Kyung Sohn, Yul Hwangbo. Prediction of the prolonged length of hospital stay after cancer surgery using the machine learning on electronic health records: Retrospective cross-sectional study. <em>nan</em>. submitted. pp. nan. nan</li>
+<li>Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehyuk Cha, Wan D. Bae, and Sang-Wook Kim. FORESEE: An Effective Efficient Framework for Estimating the Execution Times of IO Traces on the SSD. <em>IEEE Transactions on Computers</em>. Accepted to be appared. pp. nan. nan</li>
+<li><strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Sang-Wook Kim, and Kyungsik Han. Efficient processing of recommendation algorithms on a single-machine-based graph engine. <em>Journal of Supercomputing</em>. Vol. 76. pp. 7985–8002. 2018.07</li>
+<li><strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, Sung-Woo Cho, Duck-Ho Bae, and Hyunok Oh. High-performance data mining with intelligent SSD. <em>Journal of Cluster Computing</em>. Vol. 20 No. 2. pp. 1155-1166. 2017.02</li>
+<li>Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehhyuk Cha, Sang-Wook Kim, and Young Kyun Shin. The uFLIP benchmark revisited for evaluating SSDs. <em>Journal of Communication Systems</em>. Vol. 29. pp. 2100-2111. 2016.09</li>
+<li>Duck-Ho Bae, Jin-Hyung Kim, <strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, Hyunok Oh, and Chanik Park. Intelligent SSD: a turbo for big data mining. <em>Computer Science and Information Systems</em>. Vol. 13 No. 2. pp. 375-394. 2016.08</li>
+</ol>
+<h3 id="International-Conference"><strong>International Conference</strong><a class="anchor-link" href="#International-Conference">&#182;</a></h3><ol>
+<li><strong>Yong-Yeon Jo</strong>, Young Sang Choi, Hyun Woo Par, Jaehyeok Lee, Hyojung Jung, Hyo-Eun Kim, Kyounglan Ko, Chan Wha Lee, Hyo Soung Cha, and Yul Hwangbo. Impact of Image Compression on Deep Learning based Classification Performance: Mammogram. <em>Radiological Society of North America (RSNA) Annual Meeting</em>. pp. nan. Virtual. 2020.11.29-12.05</li>
+<li>JeongMyung Lee, Seokwon Kang, YongSeung Yu, <strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, and Yongjun Park. Optimization of a GPU-based Sparse Matrix Multiplication for Large Sparse Networks. <em>IEEE International Conference on Data Engineering (IEEE ICDE)</em>. pp. 925-936. Dallas, USA. 2020.04.20-24</li>
+<li><strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Sang-Wook Kim and Sunju Park. RealGraph: a graph engine leveraging the power-law distribution of real-world graphs. <em>Proceeding of the World Wide Web (WWW) Conference</em>. pp. 807-817. San Francisco, USA. 2019.05.13-17</li>
+<li>Myung-Hwan Jang, <strong>Yong-Yeon Jo</strong>, and Sang-Wook Kim. Graph-based recommendation on single-machine based graph engines: a performance study. <em>Proceeding of the International Conference on Fuzzy Theory and Its Applications (iFUZZY)</em>. pp. 173-175. Daegu, Korea. 2018.11.14-17</li>
+<li><strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Hyungsoo Jung, and Sang-Wook Kim. A high-performance graph engine for efficient social network analysis. <em>Proceeding of the World Wide Web (WWW) Conference</em>. pp. 61-62. Lyon, France. 2018.04.23-27</li>
+<li>Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehyuk Cha, Wan D. Bae, and Sang-Wook Kim. FORESEE: a framework for effective and efficient estimation of the execution time of an IO trace on the SSD. <em>Proceeding of the International Conference on Information and Knowledge Management (ACM CIKM)</em>. pp. 2123-2126. Pan Pacific, Singapore,. 2017.10.06-10</li>
+<li><strong>Yong-Yeon Jo</strong>, Kyuhwan Lee, Myung-Hwan Jang, Sang-Wook Kim, and Eunjee Song. Efficient processing of large-scale sparse matrix-matrix multiplications on a single machine. <em>Proceeding of the IEEE International Conference on Systems, MAN, and Cybernetics Society (IEEE SMC)</em>. pp. 1908-1913. Banff, Canada. 2017.10.05-08</li>
+<li><strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, and Sang-Wook Kim. Efficient processing of alternating least squares on a single machine. <em>Proceeding of the International Conference on Emerging Database (EDB)</em>. pp. 58-67. Busan, Korea. 2017.08.07-09</li>
+<li><strong>Yong-Yeon Jo</strong>,Jiwon Hong, Myung-Hwan Jang, Jae-Geun Bang, and Sang-Wook Kim. Data locality in graph engines: implications and preliminary experimental results. <em>Proceeding of the International Conference on Information and Knowledge Management (ACM CIKM)</em>. pp. 1885-1888. Indianapolis, USA. 2016.10.24-28</li>
+<li><strong>Yong-Yeon Jo</strong>, Sungwoo Cho, Sang-Wook Kim, and Hyunok Oh. Collaborative processing of data-intensive algorithms with CPU,  intelligent SSD, and GPU. <em>Proceeding of the International Conference on ACM/SIGAPP Symposium on Applied Computing (ACM SAC)</em>. pp. 1865-1870. Pisa, Italy. 2016.04.04-08</li>
+<li><strong>Yong-Yeon Jo</strong>, Moonjun Chung, Sang-Wook Kim, and Hyunok Oh. Data mining in intelligent SSD: simulation-based evaluation. <em>Proceeding of the International Conference on Big Data and Smart Computing (BigComp)</em>. pp. 123 - 128. Hong Kong, China. 2016.01.18-20</li>
+<li><strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, and Duck-Ho Bae. Efficient sparse matrix multiplication on GPU for large social network analysis. <em>Proceeding of the International Conference on Information and Knowledge Management (ACM CIKM)</em>. pp. 1261- 1270. Melbourne, Australia. 2015.10.19-23</li>
+<li><strong>Yong-Yeon Jo</strong>, SungWoo Cho, Sang-Wook Kim, Duck-Ho Bae, and Hyunok Oh. On running data-Intensive algorithms with intelligent SSD and host CPU: a collaborative approach. <em>Proceeding of the International Conference on ACM/SIGAPP Symposium on Applied Computing (ACM SAC)</em>. pp. 2060-2065. Salamanca, Spain. 2015.04.13-17</li>
+<li><strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, and Duck-Ho Bae. GPU-based matrix multiplication methods for social networks analysis. <em>Proceeding of the International Conference on Research in Adaptive and Convergent Systems (ACM RACS)</em>. pp. 309-313. Baltimore, USA. 2014.10.05-08</li>
+<li>Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehyuk Cha, Sang-Wook Kim, and Young Kyun Shin. Exploiting the uFLIP benchmark for analyzing SSDs performance. <em>Proceeding of the International Conference on Network Infrastructure and Digital Content (IEEE IC-NIDC)</em>. pp. 458-461. Beijing, China. 2014.09.19-21</li>
+<li>Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Duck-Ho Bae, and Sang-Wook Kim. Running data mining algorithms on SSDs. <em>Proceeding of the International Conference on Emerging Databases-Technologies,  Applications,  and Theory (EDB)</em>. pp. 180-183. Jeju Island, Korea. 2013.08.19-21</li>
+<li><strong>Yong-Yeon Jo</strong>, Duck-Ho Bae, and Sang-Wook Kim. Efficient computations of link-based similarity measures on the GPU. <em>Proceeding of the IEEE International Conference on Network Infrastructure and Digital Content (IEEE IC-NIDC)</em>. pp. 261-265. Beijing, China. 2012.09.21-23</li>
+</ol>
+<h3 id="Korean-Journal"><strong>Korean Journal</strong><a class="anchor-link" href="#Korean-Journal">&#182;</a></h3><ol>
+<li><strong>조용연</strong>, 김상욱, 배덕호. 효율적인 빅 데이터 마이닝을 위한 iSSD 기반 협업 처리 방안. <em>한국통신학회논문지</em>. Vol. 42,  No. 02. pp. 460-470. 2017.02</li>
+<li><strong>조용연</strong>, 배덕호, 김상욱. GPU 기반의 외적을 통한 두 희소행렬 곱셈방안. <em>한국정보과학회논문지</em>. Vol. 19,  No. 10. pp. 524-528. 2013.01</li>
+<li><strong>조용연</strong>, 배덕호, 김상욱. GPU를 이용한 그래프에서 링크 기반 유사도 계산 방안의 성능 평가. <em>한국정보과학회논문지</em>. Vol. 18,  No. 5. pp. 404-408. 2012.05</li>
+</ol>
+<h3 id="Korean-Conference"><strong>Korean Conference</strong><a class="anchor-link" href="#Korean-Conference">&#182;</a></h3><ol>
+<li><strong>조용연</strong>, 정민영, 황보율. 전자의무기록 데이터에서의 적대적 생성 알고리즘 기반 결측값 대치 알고리즘 성능분석. <em>한국정보처리학회 추계학술발표대회</em>. pp. 879-881. 2019.11.01-02</li>
+<li>강윤석, <strong>조용연</strong>, 김상욱. SSD 성능에 영향을 주는 특징 분석 방법. <em>한국정보처리학회 춘계학술발표대회</em>. pp. 315-316. 2018.05.11-12</li>
+<li>장명환, <strong>조용연</strong>, 김상욱. 그래프 기반 추천 알고리즘의 효율적인 수행. <em>한국지능시스템학회 춘계학술대회</em>. pp. 149-150. 2018.04.19-21</li>
+<li><strong>조용연</strong>, 장명환, 김상욱. 실 세계 빅 그래프의 특징을 고려한 싱글 머신 기반 그래프 엔진. <em>한국컴퓨터종합학술대회</em>. pp. 1612. 2017.06.18-20</li>
+<li>강윤석, <strong>조용연</strong>, 차재혁, 배완덕, 김상욱. SSD를 위한 IO 트레이스 수행시간 예측 방안. <em>한국컴퓨터종합학술대회</em>. pp. 1653. 2017.06.18-20</li>
+<li>이현진, <strong>조용연</strong>, 김상욱. FlashGraph에서 너비우선탐색 알고리즘의 성능 개선 방안. <em>정보처리학회 춘계학술발표대회</em>. pp. 575-576. 2016.04.29-30</li>
+<li>정문준, <strong>조용연</strong>, 김상욱, 오현옥. 시뮬레이터 기반 iSSD에서 데이터 마이닝 알고리즘 성능 평가. <em>정보처리학회 추계학술발표대회</em>. pp. 1126-1127. 2015.10.30-31</li>
+<li>이규환, <strong>조용연</strong>, 김상욱. 블록 I/O 트레이스 리플레이어에 대한 분석. <em>한국컴퓨터종합학술대회</em>. pp. 1653-1655. 2015.06.24-26</li>
+<li>장명환, <strong>조용연</strong>, 김상욱. GraphChi기반의 두 희소 행렬 곱셈. <em>한국컴퓨터종합학술대회</em>. pp. 295-296. 2015.06.24-26</li>
+<li>이인혁, 이규환, 강윤석, <strong>조용연</strong>, 김상욱. SSD 성능 비교를 위한 I/O 트레이스 리플레이어 분석. <em>정보처리학회 추계학술발표대회</em>. pp. 757-758. 2014.11.07-08</li>
+<li>권일택, <strong>조용연</strong>, 김상욱. 빅 데이터를 위한 행렬 곱셈의 성능 분석. <em>정보처리학회 추계학술발표대회</em>. pp. 747-749. 2014.11.07-08</li>
+<li>진동규, 조성우, <strong>조용연</strong>, 김상욱, 오현옥. 스케줄링 알고리즘에 따른 협업 시스템의 성능 분석. <em>정보처리학회 추계학술발표대회</em>. pp. 105-107. 2014.11.07-08</li>
+<li>조성우, <strong>조용연</strong>, 배덕호, 김상욱, 오현옥. Intelligent SSD에서 이질 스케줄링 알고리즘 적용을 통한 프로그램 성능 향상 방안. <em>한국정보과학회 추계학술발표대회</em>. pp. 292-293. 2013.11.15-16</li>
+<li>정승훈, 이재성, 강윤석, <strong>조용연</strong>, 배덕호, 김상욱, 강주영, 차재혁. OLTP환경에서 SSD의 성능 분석. <em>한국정보과학회 추계학술발표대회</em>. pp. 318-319. 2013.11.15-16</li>
+<li><strong>조용연</strong>, 배덕호, 김상욱. GPU기반 희소행렬 곱셈의 성능 분석. <em>한국통신학회 동계종합학술발표회</em>. pp. 354-355. 2013.01.30-2013.02.01</li>
+<li><strong>조용연</strong>, 배덕호, 김상욱. GPU를 이용한 그래프에서 링크 기반 유사도 계산 방안의 성능 평가. <em>한국정보과학회 추계학술발표대회</em>. pp. 346-347. 2011.06.29-2011.07.01</li>
+</ol>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_markdown rendered_html output_subarea ">
 <h1 id="Project">Project<a class="anchor-link" href="#Project">&#182;</a></h1>
 </div>
 
@@ -13384,11 +13409,11 @@ $( document ).ready(code_toggle);
 
 <div class="output_markdown rendered_html output_subarea ">
 <ul>
-<li>An Open Source Medical Imaging Project for Artificial Intelligence Applications in Digital Healthcare. National Cancer Center. 2020.06~11<ul>
+<li>An Open Source Medical Imaging Project for Artificial Intelligence Applications in Digital Healthcare. National Cancer Center. 2020.06-2020.11<ul>
 <li>질병 진단용 인공지능 이미지 데이터 구축 사업 - 유방암 및 감염병 질환 진단을 위한 의료 영상 구축 사업, 정보화진흥원</li>
 </ul>
 </li>
-<li>Medical image data open project for developing and advancing artificial intelligence technology. National Cancer Center. 2019.05~11<ul>
+<li>Medical image data open project for developing and advancing artificial intelligence technology. National Cancer Center. 2019.05-2020.11<ul>
 <li>인공지능 기술 육성 및 활성화를 위한 의료영상 공개사업, 정보화진흥원</li>
 </ul>
 </li>
@@ -13430,65 +13455,40 @@ $( document ).ready(code_toggle);
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h1 id="Publication">Publication<a class="anchor-link" href="#Publication">&#182;</a></h1>
-</div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h3 id="International-Journal"><strong>International Journal</strong><a class="anchor-link" href="#International-Journal">&#182;</a></h3><ol>
-<li><strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Sang-Wook Kim, and Kyungsik Han. Efficient processing of recommendation algorithms on a single-machine-based graph engine. <em>Journal of Supercomputing</em>. Online. pp. 1-18. 2018.07</li>
-<li><strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, Sung-Woo Cho, Duck-Ho Bae, and Hyunok Oh. High-performance data mining with intelligent SSD. <em>Journal of Cluster Computing</em>. Vol. 20 No 2. pp. 1155-1166. 2017.02</li>
-<li>Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehhyuk Cha, Sang-Wook Kim, and Young Kyun Shin. The uFLIP benchmark revisited for evaluating SSDs. <em>Journal of Communication Systems</em>. Vol. 29. pp. 2100-2111. 2016.09</li>
-<li>Duck-Ho Bae, Jin-Hyung Kim, <strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, Hyunok Oh, and Chanik Park. Intelligent SSD: a turbo for big data mining. <em>Computer Science and Information Systems</em>. Vol. 13 No. 2. pp. 375-394. 2016.08</li>
-</ol>
-<h3 id="International-Conference"><strong>International Conference</strong><a class="anchor-link" href="#International-Conference">&#182;</a></h3><ol>
-<li>JeongMyung Lee, Seokwon Kang, YongSeung Yu, <strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, and Yongjun Park. Optimization of a GPU-based Sparse Matrix Multiplication for Large Sparse Networks. <em>IEEE International Conference on Data Engineering (IEEE ICDE 2020)</em>. pp. 925-936. Dallas, USA. 2020.04.20-24</li>
-<li><strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Sang-Wook Kim and Sunju Park. RealGraph: a graph engine leveraging the power-law distribution of real-world graphs. <em>Proceeding of the World Wide Web (WWW) Conference</em>. pp. 807-817. San Francisco, USA. 2019.05.13-17</li>
-<li>Myung-Hwan Jang, <strong>Yong-Yeon Jo</strong>, and Sang-Wook Kim. Graph-based recommendation on single-machine based graph engines: a performance study. <em>Proceeding of the International Conference on Fuzzy Theory and Its Applications (iFUZZY)</em>. pp. 173-175. Daegu, Korea. 2018.11.14-17</li>
-<li><strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Hyungsoo Jung, and Sang-Wook Kim. A high-performance graph engine for efficient social network analysis. <em>Proceeding of the World Wide Web (WWW) Conference</em>. pp. 61-62. Lyon, France. 2018.04.23-27</li>
-<li>Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehyuk Cha, Wan D. Bae, and Sang-Wook Kim. FORESEE: a framework for effective and efficient estimation of the execution time of an IO trace on the SSD. <em>Proceeding of the International Conference on Information and Knowledge Management (ACM CIKM)</em>. pp. 2123-2126. Pan Pacific, Singapore,. 2017.10.06-10</li>
-<li><strong>Yong-Yeon Jo</strong>, Kyuhwan Lee, Myung-Hwan Jang, Sang-Wook Kim, and Eunjee Song. Efficient processing of large-scale sparse matrix-matrix multiplications on a single machine. <em>Proceeding of the IEEE International Conference on Systems, MAN, and Cybernetics Society (IEEE SMC)</em>. pp. 1908-1913. Banff, Canada. 2017.10.05-08</li>
-<li><strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, and Sang-Wook Kim. Efficient processing of alternating least squares on a single machine. <em>Proceeding of the International Conference on Emerging Database (EDB)</em>. pp. 58-67. Busan, Korea. 2017.08.07-09</li>
-<li><strong>Yong-Yeon Jo</strong>,Jiwon Hong, Myung-Hwan Jang, Jae-Geun Bang, and Sang-Wook Kim. Data locality in graph engines: implications and preliminary experimental results. <em>Proceeding of the International Conference on Information and Knowledge Management (ACM CIKM)</em>. pp. 1885-1888. Indianapolis, USA. 2016.10.24-28</li>
-<li><strong>Yong-Yeon Jo</strong>, Sungwoo Cho, Sang-Wook Kim, and Hyunok Oh. Collaborative processing of data-intensive algorithms with CPU,  intelligent SSD, and GPU. <em>Proceeding of the International Conference on ACM/SIGAPP Symposium on Applied Computing (ACM SAC)</em>. pp. 1865-1870. Pisa, Italy. 2016.04.04-08</li>
-<li><strong>Yong-Yeon Jo</strong>, Moonjun Chung, Sang-Wook Kim, and Hyunok Oh. Data mining in intelligent SSD: simulation-based evaluation. <em>Proceeding of the International Conference on Big Data and Smart Computing (BigComp)</em>. pp. 123 - 128. Hong Kong, China. 2016.01.18-20</li>
-<li><strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, and Duck-Ho Bae. Efficient sparse matrix multiplication on GPU for large social network analysis. <em>Proceeding of the International Conference on Information and Knowledge Management (ACM CIKM)</em>. pp. 1261- 1270. Melbourne, Australia. 2015.10.19-23</li>
-<li><strong>Yong-Yeon Jo</strong>, SungWoo Cho, Sang-Wook Kim, Duck-Ho Bae, and Hyunok Oh. On running data-Intensive algorithms with intelligent SSD and host CPU: a collaborative approach. <em>Proceeding of the International Conference on ACM/SIGAPP Symposium on Applied Computing (ACM SAC)</em>. pp. 2060-2065. Salamanca, Spain. 2015.04.13-17</li>
-<li><strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, and Duck-Ho Bae. GPU-based matrix multiplication methods for social networks analysis. <em>Proceeding of the International Conference on Research in Adaptive and Convergent Systems (ACM RACS)</em>. pp. 309-313. Baltimore, USA. 2014.10.05-08</li>
-<li>Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehyuk Cha, Sang-Wook Kim, and Young Kyun Shin. Exploiting the uFLIP benchmark for analyzing SSDs performance. <em>Proceeding of the International Conference on Network Infrastructure and Digital Content (IEEE IC-NIDC)</em>. pp. 458-461. Beijing, China. 2014.09.19-21</li>
-<li>Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Duck-Ho Bae, and Sang-Wook Kim. Running data mining algorithms on SSDs. <em>Proceeding of the International Conference on Emerging Databases-Technologies,  Applications,  and Theory (EDB)</em>. pp. 180-183. Jeju Island, Korea. 2013.08.19-21</li>
-<li><strong>Yong-Yeon Jo</strong>, Duck-Ho Bae, and Sang-Wook Kim. Efficient computations of link-based similarity measures on the GPU. <em>Proceeding of the IEEE International Conference on Network Infrastructure and Digital Content (IEEE IC-NIDC)</em>. pp. 261-265. Beijing, China. 2012.09.21-23</li>
-</ol>
-<h3 id="Korean-Journal"><strong>Korean Journal</strong><a class="anchor-link" href="#Korean-Journal">&#182;</a></h3><ol>
-<li><strong>조용연</strong>, 김상욱, 배덕호. 효율적인 빅 데이터 마이닝을 위한 iSSD 기반 협업 처리 방안. <em>한국통신학회논문지</em>. Vol. 42,  No. 02. pp. 460-470. 2017.02</li>
-<li><strong>조용연</strong>, 배덕호, 김상욱. GPU 기반의 외적을 통한 두 희소행렬 곱셈방안. <em>한국정보과학회논문지</em>. Vol. 19,  No. 10. pp. 524-528. 2013.01</li>
-<li><strong>조용연</strong>, 배덕호, 김상욱. GPU를 이용한 그래프에서 링크 기반 유사도 계산 방안의 성능 평가. <em>한국정보과학회논문지</em>. Vol. 18,  No. 5. pp. 404-408. 2012.05</li>
-</ol>
-<h3 id="Korean-Conference"><strong>Korean Conference</strong><a class="anchor-link" href="#Korean-Conference">&#182;</a></h3><ol>
-<li><strong>조용연</strong>, 정민영, 황보율. 전자의무기록 데이터에서의 적대적 생성 알고리즘 기반 결측값 대치 알고리즘 성능분석. <em>한국정보처리학회 추계학술발표대회</em>. pp. 879-881. 2019.11.01-02</li>
-<li>강윤석, <strong>조용연</strong>, 김상욱. SSD 성능에 영향을 주는 특징 분석 방법. <em>한국정보처리학회 춘계학술발표대회</em>. pp. 315-316. 2018.05.11-12</li>
-<li>장명환, <strong>조용연</strong>, 김상욱. 그래프 기반 추천 알고리즘의 효율적인 수행. <em>한국지능시스템학회 춘계학술대회</em>. pp. 149-150. 2018.04.19-21</li>
-<li><strong>조용연</strong>, 장명환, 김상욱. 실 세계 빅 그래프의 특징을 고려한 싱글 머신 기반 그래프 엔진. <em>한국컴퓨터종합학술대회</em>. pp. 1612. 2017.06.18-20</li>
-<li>강윤석, <strong>조용연</strong>, 차재혁, 배완덕, 김상욱. SSD를 위한 IO 트레이스 수행시간 예측 방안. <em>한국컴퓨터종합학술대회</em>. pp. 1653. 2017.06.18-20</li>
-<li>이현진, <strong>조용연</strong>, 김상욱. FlashGraph에서 너비우선탐색 알고리즘의 성능 개선 방안. <em>정보처리학회 춘계학술발표대회</em>. pp. 575-576. 2016.04.29-30</li>
-<li>정문준, <strong>조용연</strong>, 김상욱, 오현옥. 시뮬레이터 기반 iSSD에서 데이터 마이닝 알고리즘 성능 평가. <em>정보처리학회 추계학술발표대회</em>. pp. 1126-1127. 2015.10.30-31</li>
-<li>이규환, <strong>조용연</strong>, 김상욱. 블록 I/O 트레이스 리플레이어에 대한 분석. <em>한국컴퓨터종합학술대회</em>. pp. 1653-1655. 2015.06.24-26</li>
-<li>장명환, <strong>조용연</strong>, 김상욱. GraphChi기반의 두 희소 행렬 곱셈. <em>한국컴퓨터종합학술대회</em>. pp. 295-296. 2015.06.24-26</li>
-<li>이인혁, 이규환, 강윤석, <strong>조용연</strong>, 김상욱. SSD 성능 비교를 위한 I/O 트레이스 리플레이어 분석. <em>정보처리학회 추계학술발표대회</em>. pp. 757-758. 2014.11.07-08</li>
-<li>권일택, <strong>조용연</strong>, 김상욱. 빅 데이터를 위한 행렬 곱셈의 성능 분석. <em>정보처리학회 추계학술발표대회</em>. pp. 747-749. 2014.11.07-08</li>
-<li>진동규, 조성우, <strong>조용연</strong>, 김상욱, 오현옥. 스케줄링 알고리즘에 따른 협업 시스템의 성능 분석. <em>정보처리학회 추계학술발표대회</em>. pp. 105-107. 2014.11.07-08</li>
-<li>조성우, <strong>조용연</strong>, 배덕호, 김상욱, 오현옥. Intelligent SSD에서 이질 스케줄링 알고리즘 적용을 통한 프로그램 성능 향상 방안. <em>한국정보과학회 추계학술발표대회</em>. pp. 292-293. 2013.11.15-16</li>
-<li>정승훈, 이재성, 강윤석, <strong>조용연</strong>, 배덕호, 김상욱, 강주영, 차재혁. OLTP환경에서 SSD의 성능 분석. <em>한국정보과학회 추계학술발표대회</em>. pp. 318-319. 2013.11.15-16</li>
-<li><strong>조용연</strong>, 배덕호, 김상욱. GPU기반 희소행렬 곱셈의 성능 분석. <em>한국통신학회 동계종합학술발표회</em>. pp. 354-355. 2013.01.30-02.01</li>
-<li><strong>조용연</strong>, 배덕호, 김상욱. GPU를 이용한 그래프에서 링크 기반 유사도 계산 방안의 성능 평가. <em>한국정보과학회 추계학술발표대회</em>. pp. 346-347. 2011.06.29-07.01</li>
-</ol>
+<ul>
+<li>An Open Source Medical Imaging Project for Artificial Intelligence Applications in Digital Healthcare. National Cancer Center. 2020.06-2020.11<ul>
+<li>질병 진단용 인공지능 이미지 데이터 구축 사업 - 유방암 및 감염병 질환 진단을 위한 의료 영상 구축 사업, 정보화진흥원</li>
+</ul>
+</li>
+<li>Medical image data open project for developing and advancing artificial intelligence technology. National Cancer Center. 2019.05-2020.11<ul>
+<li>인공지능 기술 육성 및 활성화를 위한 의료영상 공개사업, 정보화진흥원</li>
+</ul>
+</li>
+<li>Prediction and analysis of the length of stay for cancer patients using big data mining. National Cancer Center. 2018.05-2019.07<ul>
+<li>빅 데이터 마이닝을 활용한 암수술환자의 재원 기간 예측 및 분석, 국립암센터</li>
+</ul>
+</li>
+<li>Development of parameter server for efficient distributed deep learning. Hanyang University. 2017.09-2018.02<ul>
+<li>효율적인 분산 딥 러닝을 위한 파라미터 서버 기술 개발, 한양대학교-SK</li>
+</ul>
+</li>
+<li>Platform for large-scale graph processing based on SSD array. Hanyang University. 2015.07-2018.02<ul>
+<li>SSD 기반의 그래프 빅 데이터 처리 플랫폼 기술개발, 한양대학교-삼성전자</li>
+</ul>
+</li>
+<li>Development of core software technology for big data mining in social and information networks. Hanyang University. 2014.11-2017.10<ul>
+<li>소셜 및 정보 네트워크 빅 데이터 마이닝 소프트웨어 원천 기술 개발, 한국연구재단</li>
+</ul>
+</li>
+<li>Research for big data management system on enterprise SSD. Hanyang University. 2012.12-2014.11<ul>
+<li>대용량 데이터베이스 관리를 위한 고성능 Enterprise SSD 연구, 한양대학교-하이닉스</li>
+</ul>
+</li>
+<li>Development of active SSD platform for high performance of data mining. Hanyang University. 2011.07-2015.06<ul>
+<li>고성능 데이터 마이닝을 위한 미래형 Active SSD 플랫폼 기술 개발, 한양대학교-삼성전자</li>
+</ul>
+</li>
+</ul>
 <hr>
 
 </div>
