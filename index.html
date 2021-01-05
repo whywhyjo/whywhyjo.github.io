@@ -13118,7 +13118,12 @@ $( document ).ready(code_toggle);
 </li>
 <li><p><strong>Research Interest</strong></p>
 <ul>
-<li>Healthcare, Biosignal, Electrocardiogram, Deep learning, Data mining</li>
+<li>Data Mining in Healthcare using Deep Leaning<ul>
+<li>Biosignal - Electrocardiogram (ECG/EKG)</li>
+<li>Electronic Medical Record (EMR/EHR)</li>
+</ul>
+</li>
+<li>High-performance in Graph processing on Graphic Processor Unit (GPU) and Single Machine</li>
 </ul>
 </li>
 </ul>
@@ -13152,96 +13157,161 @@ $( document ).ready(code_toggle);
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">md_str</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
-<span class="n">printmd</span><span class="p">(</span><span class="s1">&#39;# Publication&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">md_str_paper_i</span><span class="o">=</span><span class="s1">&#39;# Publication</span><span class="se">\n\</span>
+<span class="s1">##### *J:journal, C: conference</span><span class="se">\n\</span>
+<span class="s1">### **International**</span><span class="se">\n</span><span class="s1">&#39;</span>
 
-<span class="c1">############## Journal ##############</span>
-<span class="n">df_ij</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Resume.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;IJ&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">md_str</span> <span class="o">+=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">### **International Journal**</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="c1">#md_str=&#39;&#39;</span>
+<span class="n">df_i</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Resume.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;International&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">df_i</span> <span class="o">=</span> <span class="n">df_i</span><span class="p">[</span><span class="o">~</span><span class="n">df_i</span><span class="p">[</span><span class="s1">&#39;Etc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;X&#39;</span><span class="p">])]</span>
+<span class="n">df_i</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span><span class="s1">&#39;Month&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 
-<span class="n">cnt</span> <span class="o">=</span><span class="mi">1</span> 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_ij</span><span class="p">)):</span>
-    <span class="k">if</span> <span class="n">df_ij</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span> 
-        <span class="n">authors</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_ij</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Yong-Yeon Jo&#39;</span><span class="p">,</span><span class="s1">&#39;__Yong-Yeon Jo__&#39;</span><span class="p">)</span>
-        <span class="n">md_str</span><span class="o">+=</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span><span class="o">+</span>
-                <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="n">authors</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
-                <span class="c1">#str(i+1)+&#39;. &#39;+ df_ic[&#39;Type&#39;][i] +</span>
-                <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_ij</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
-                <span class="s1">&#39;. *&#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_ij</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;*&#39;</span><span class="o">+</span>
-                 <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_ij</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
-                <span class="s1">&#39;. pp. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_ij</span><span class="p">[</span><span class="s1">&#39;Page&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
-                <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_ij</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>    <span class="o">+</span>
-<span class="c1">#                 &#39;. [&#39;+ str(df_ij[&#39;Etc&#39;][i]).strip() +</span>
-                 <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
-               <span class="p">)</span> 
-        <span class="n">cnt</span><span class="o">+=</span><span class="mi">1</span>
+<span class="n">df_i</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_i</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="n">num_jour</span><span class="p">,</span> <span class="n">cnt_jour</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_i</span><span class="p">[</span><span class="n">df_i</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;J&#39;</span><span class="p">])]),</span> <span class="mi">0</span>
+<span class="n">num_conf</span><span class="p">,</span> <span class="n">cnt_conf</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_i</span><span class="p">[</span><span class="n">df_i</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;C&#39;</span><span class="p">])]),</span> <span class="mi">0</span>
 
+<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df_i</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Yong-Yeon Jo&#39;</span><span class="p">,</span><span class="s1">&#39;__Yong-Yeon Jo__&#39;</span><span class="p">)</span>
+    <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span>
+    <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">])</span> <span class="k">else</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Location&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Location&#39;</span><span class="p">])</span> <span class="k">else</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Location&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">]):</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">]</span> <span class="o">=</span><span class="s1">&#39;&#39;</span> 
+    <span class="n">date</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:4d}</span><span class="s1">.</span><span class="si">{:2d}</span><span class="s1">.</span><span class="si">{:}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]),</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">]),</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">])</span>
 
-<span class="c1">############ conference ###########</span>
-<span class="n">df_ic</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Resume.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;IC&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-
-<span class="n">md_str</span> <span class="o">+=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">### **International Conference**</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_ic</span><span class="p">)):</span>
-    <span class="n">authors</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_ic</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Yong-Yeon Jo&#39;</span><span class="p">,</span><span class="s1">&#39;__Yong-Yeon Jo__&#39;</span><span class="p">)</span>
-    <span class="n">md_str</span><span class="o">+=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span>
-            <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="n">authors</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
-            <span class="c1">#str(i+1)+&#39;. &#39;+ df_ic[&#39;Type&#39;][i] +</span>
-            <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_ic</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
-            <span class="s1">&#39;. *&#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_ic</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;*&#39;</span><span class="o">+</span>
-            <span class="s1">&#39;. pp. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_ic</span><span class="p">[</span><span class="s1">&#39;Page&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
-            <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_ic</span><span class="p">[</span><span class="s1">&#39;Location&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
-            <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_ic</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-           <span class="p">)</span>
-    
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">df_ic</span><span class="p">[</span><span class="s1">&#39;Etc&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span><span class="nb">str</span><span class="p">)</span> <span class="p">:</span>
-        <span class="n">md_str</span><span class="o">+=</span><span class="s1">&#39;. [&#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_ic</span><span class="p">[</span><span class="s1">&#39;Etc&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span><span class="s1">&#39;] </span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">==</span><span class="s1">&#39;J&#39;</span><span class="p">:</span>
+        <span class="n">paper_id</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">num_jour</span><span class="o">-</span><span class="n">cnt_jour</span><span class="p">)</span>
+        <span class="n">cnt_jour</span> <span class="o">+=</span><span class="mi">1</span>
+        <span class="n">md_str_paper_i</span><span class="o">+=</span><span class="s1">&#39;- </span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1">. *</span><span class="si">{}</span><span class="s1">*. </span><span class="si">{}</span><span class="s1">. pp. </span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>\
+            <span class="n">paper_id</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Page&#39;</span><span class="p">],</span><span class="n">date</span><span class="p">)</span>
+        
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">md_str</span><span class="o">+=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>        
-    
-    
-<span class="c1">#print(md_str)</span>
-<span class="c1">#md_str+=&#39;\n&#39;</span>
+        <span class="n">paper_id</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">num_conf</span><span class="o">-</span><span class="n">cnt_conf</span><span class="p">)</span>
+        <span class="n">cnt_conf</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="n">md_str_paper_i</span><span class="o">+=</span><span class="s1">&#39;- </span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1">. *</span><span class="si">{}</span><span class="s1">*. </span><span class="si">{}</span><span class="s1">. pp. </span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1"> </span><span class="se">\n</span><span class="s1"> &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>\
+            <span class="n">paper_id</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Page&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Location&#39;</span><span class="p">],</span><span class="n">date</span><span class="p">)</span>
+
+<span class="n">md_str_paper_d</span> <span class="o">=</span> <span class="s1">&#39;### **Domestic**</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="n">df_i</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Resume.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;Domestic&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">df_i</span> <span class="o">=</span> <span class="n">df_i</span><span class="p">[</span><span class="o">~</span><span class="n">df_i</span><span class="p">[</span><span class="s1">&#39;Etc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;X&#39;</span><span class="p">])]</span>
+<span class="n">df_i</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span><span class="s1">&#39;Month&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="n">df_i</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_i</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="n">num_jour</span><span class="p">,</span> <span class="n">cnt_jour</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_i</span><span class="p">[</span><span class="n">df_i</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;J&#39;</span><span class="p">])]),</span> <span class="mi">0</span>
+<span class="n">num_conf</span><span class="p">,</span> <span class="n">cnt_conf</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_i</span><span class="p">[</span><span class="n">df_i</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;C&#39;</span><span class="p">])]),</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df_i</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;조용연&#39;</span><span class="p">,</span><span class="s1">&#39;__조용연__&#39;</span><span class="p">)</span>
+    <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span>
+    <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">])</span> <span class="k">else</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">]):</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">]</span> <span class="o">=</span><span class="s1">&#39;&#39;</span> 
+    <span class="n">date</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:4d}</span><span class="s1">.</span><span class="si">{:2d}</span><span class="s1">.</span><span class="si">{:}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]),</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">]),</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">==</span><span class="s1">&#39;J&#39;</span><span class="p">:</span>
+        <span class="n">paper_id</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">num_jour</span><span class="o">-</span><span class="n">cnt_jour</span><span class="p">)</span>
+        <span class="n">cnt_jour</span> <span class="o">+=</span><span class="mi">1</span>
+        <span class="n">md_str_paper_d</span><span class="o">+=</span><span class="s1">&#39;- </span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1">. *</span><span class="si">{}</span><span class="s1">*. </span><span class="si">{}</span><span class="s1">. pp. </span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>\
+            <span class="n">paper_id</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Page&#39;</span><span class="p">],</span><span class="n">date</span><span class="p">)</span>
+        
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">paper_id</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">num_conf</span><span class="o">-</span><span class="n">cnt_conf</span><span class="p">)</span>
+        <span class="n">cnt_conf</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="n">md_str_paper_d</span><span class="o">+=</span><span class="s1">&#39;- </span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1">. *</span><span class="si">{}</span><span class="s1">*. </span><span class="si">{}</span><span class="s1">. pp. </span><span class="si">{}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>\
+            <span class="n">paper_id</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Page&#39;</span><span class="p">],</span><span class="n">date</span><span class="p">)</span>
+
+<span class="n">printmd</span><span class="p">(</span><span class="n">md_str_paper_i</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">------------</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">+</span><span class="n">md_str_paper_d</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
 
 
-<span class="n">df_dj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Resume.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;DJ&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">md_str</span> <span class="o">+=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">### **Korean Journal**</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_dj</span><span class="p">)):</span>
-    <span class="n">authors</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_dj</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;조용연&#39;</span><span class="p">,</span><span class="s1">&#39;__조용연__&#39;</span><span class="p">)</span>
-    <span class="n">md_str</span><span class="o">+=</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span>
-            <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="n">authors</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
-            <span class="c1">#str(i+1)+&#39;. &#39;+ df_ic[&#39;Type&#39;][i] +</span>
-            <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_dj</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
-            <span class="s1">&#39;. *&#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_dj</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;*&#39;</span><span class="o">+</span>
-             <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_dj</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
-            <span class="s1">&#39;. pp. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_dj</span><span class="p">[</span><span class="s1">&#39;Page&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
-            <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_dj</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  <span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>  
-            <span class="c1">#&#39;. [&#39;+ str(df_dc[&#39;Etc&#39;][i]).strip() +&#39;]&#39;</span>
-           <span class="p">)</span>
-    
-<span class="n">df_dc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Resume.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;DC&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">md_str</span> <span class="o">+=</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">### **Korean Conference** </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="c1">#md_str=&#39;&#39;</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_dc</span><span class="p">)):</span>
-    <span class="n">authors</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_dc</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;조용연&#39;</span><span class="p">,</span><span class="s1">&#39;__조용연__&#39;</span><span class="p">)</span>
-    <span class="n">md_str</span><span class="o">+=</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span>
-            <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="n">authors</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
-            <span class="c1">#str(i+1)+&#39;. &#39;+ df_ic[&#39;Type&#39;][i] +</span>
-            <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_dc</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
-            <span class="s1">&#39;. *&#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_dc</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;*&#39;</span><span class="o">+</span>
-            <span class="s1">&#39;. pp. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_dc</span><span class="p">[</span><span class="s1">&#39;Page&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
-            <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_dc</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>    <span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
-            <span class="c1">#&#39;. [&#39;+ str(df_dc[&#39;Etc&#39;][i]).strip() +&#39;]&#39;</span>
-           <span class="p">)</span>
-<span class="c1">#print(md_str)</span>
-<span class="c1">#md_str+=&#39;\n&#39;</span>
-<span class="n">md_str</span><span class="o">+=</span><span class="s1">&#39;------------&#39;</span>
-<span class="n">printmd</span><span class="p">(</span><span class="n">md_str</span><span class="p">)</span>
+<div class="output_area">
 
-<span class="n">printmd</span><span class="p">(</span><span class="s1">&#39;# Project </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <div class="prompt"></div>
+
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h1 id="Publication">Publication<a class="anchor-link" href="#Publication">&#182;</a></h1><h5 id="*J:journal,-C:-conference">*J:journal, C: conference<a class="anchor-link" href="#*J:journal,-C:-conference">&#182;</a></h5><h3 id="International"><strong>International</strong><a class="anchor-link" href="#International">&#182;</a></h3><ul>
+<li>J6. <strong>Yong-Yeon Jo</strong>, Younghoon Cho, Soo YounLee, Joon-myoung Kwon, Kyung-Hee Kim, Ki-Hyun Jeon, Soohyun Cho, Jinsik Park, and Byung-Hee Oh. explainable artificial intelligence to detect atrial fibrillation using electrocardiogram. <em>International Journal of Cardiology</em>. Available online. pp. nan. 2020.12. </li>
+<li>J5. Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehyuk Cha, Wan D. Bae, and Sang-Wook Kim. foresee: an effective efficient framework for estimating the execution times of io traces on the ssd. <em>IEEE Transactions on Computers</em>. Available online. pp. nan. 2020.11. </li>
+<li>C17. <strong>Yong-Yeon Jo</strong>, Young Sang Choi, Hyun Woo Par, Jaehyeok Lee, Hyojung Jung, Hyo-Eun Kim, Kyounglan Ko, Chan Wha Lee, Hyo Soung Cha, and Yul Hwangbo. impact of image compression on deep learning based classification performance: mammogram. <em>Radiological Society of North America (RSNA) Annual Meeting</em>. nan. pp. Virtual. 2020.11.29-12.05 <ul>
+<li>C16. JeongMyung Lee, Seokwon Kang, YongSeung Yu, <strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, and Yongjun Park. optimization of a gpu-based sparse matrix multiplication for large sparse networks. <em>IEEE International Conference on Data Engineering (IEEE ICDE)</em>. 925-936. pp. Dallas, USA. 2020. 4.20-24 </li>
+<li>C15. <strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Sang-Wook Kim and Sunju Park. realgraph: a graph engine leveraging the power-law distribution of real-world graphs. <em>Proceeding of the World Wide Web (WWW) Conference</em>. 807-817. pp. San Francisco, USA. 2019. 5.13-17 </li>
+<li>C14. Myung-Hwan Jang, <strong>Yong-Yeon Jo</strong>, and Sang-Wook Kim. graph-based recommendation on single-machine based graph engines: a performance study. <em>Proceeding of the International Conference on Fuzzy Theory and Its Applications (iFUZZY)</em>. 173-175. pp. Daegu, Korea. 2018.11.14-17 </li>
+<li>J4. <strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Sang-Wook Kim, and Kyungsik Han. efficient processing of recommendation algorithms on a single-machine-based graph engine. <em>Journal of Supercomputing</em>. Vol. 76. pp. 7985–8002. 2018. 7. </li>
+</ul>
+</li>
+<li>C13. <strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Hyungsoo Jung, and Sang-Wook Kim. a high-performance graph engine for efficient social network analysis. <em>Proceeding of the World Wide Web (WWW) Conference</em>. 61-62. pp. Lyon, France. 2018. 4.23-27 <ul>
+<li>C12. <strong>Yong-Yeon Jo</strong>, Kyuhwan Lee, Myung-Hwan Jang, Sang-Wook Kim, and Eunjee Song. efficient processing of large-scale sparse matrix-matrix multiplications on a single machine. <em>Proceeding of the IEEE International Conference on Systems, MAN, and Cybernetics Society (IEEE SMC)</em>. 1908-1913. pp. Banff, Canada. 2017.10.05-08 </li>
+<li>C11. Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehyuk Cha, Wan D. Bae, and Sang-Wook Kim. foresee: a framework for effective and efficient estimation of the execution time of an io trace on the ssd. <em>Proceeding of the International Conference on Information and Knowledge Management (ACM CIKM)</em>. 2123-2126. pp. Pan Pacific, Singapore,. 2017.10.06-10 </li>
+<li>C10. <strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, and Sang-Wook Kim. efficient processing of alternating least squares on a single machine. <em>Proceeding of the International Conference on Emerging Database (EDB)</em>. 58-67. pp. Busan, Korea. 2017. 8.07-09 </li>
+<li>J3. <strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, Sung-Woo Cho, Duck-Ho Bae, and Hyunok Oh. high-performance data mining with intelligent ssd. <em>Journal of Cluster Computing</em>. Vol. 20 No. 2. pp. 1155-1166. 2017. 2. </li>
+</ul>
+</li>
+<li>C9. <strong>Yong-Yeon Jo</strong>,Jiwon Hong, Myung-Hwan Jang, Jae-Geun Bang, and Sang-Wook Kim. data locality in graph engines: implications and preliminary experimental results. <em>Proceeding of the International Conference on Information and Knowledge Management (ACM CIKM)</em>. 1885-1888. pp. Indianapolis, USA. 2016.10.24-28 <ul>
+<li>J2. Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehhyuk Cha, Sang-Wook Kim, and Young Kyun Shin. the uflip benchmark revisited for evaluating ssds. <em>Journal of Communication Systems</em>. Vol. 29. pp. 2100-2111. 2016. 9. </li>
+</ul>
+</li>
+<li>J1. Duck-Ho Bae, Jin-Hyung Kim, <strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, Hyunok Oh, and Chanik Park. intelligent ssd: a turbo for big data mining. <em>Computer Science and Information Systems</em>. Vol. 13 No. 2. pp. 375-394. 2016. 8. </li>
+<li>C8. <strong>Yong-Yeon Jo</strong>, Sungwoo Cho, Sang-Wook Kim, and Hyunok Oh. collaborative processing of data-intensive algorithms with cpu,  intelligent ssd, and gpu. <em>Proceeding of the International Conference on ACM/SIGAPP Symposium on Applied Computing (ACM SAC)</em>. 1865-1870. pp. Pisa, Italy. 2016. 4.04-08 <ul>
+<li>C7. <strong>Yong-Yeon Jo</strong>, Moonjun Chung, Sang-Wook Kim, and Hyunok Oh. data mining in intelligent ssd: simulation-based evaluation. <em>Proceeding of the International Conference on Big Data and Smart Computing (BigComp)</em>. 123 - 128. pp. Hong Kong, China. 2016. 1.18-20 </li>
+<li>C6. <strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, and Duck-Ho Bae. efficient sparse matrix multiplication on gpu for large social network analysis. <em>Proceeding of the International Conference on Information and Knowledge Management (ACM CIKM)</em>. 1261- 1270. pp. Melbourne, Australia. 2015.10.19-23 </li>
+<li>C5. <strong>Yong-Yeon Jo</strong>, SungWoo Cho, Sang-Wook Kim, Duck-Ho Bae, and Hyunok Oh. on running data-intensive algorithms with intelligent ssd and host cpu: a collaborative approach. <em>Proceeding of the International Conference on ACM/SIGAPP Symposium on Applied Computing (ACM SAC)</em>. 2060-2065. pp. Salamanca, Spain. 2015. 4.13-17 </li>
+<li>C4. <strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, and Duck-Ho Bae. gpu-based matrix multiplication methods for social networks analysis. <em>Proceeding of the International Conference on Research in Adaptive and Convergent Systems (ACM RACS)</em>. 309-313. pp. Baltimore, USA. 2014.10.05-08 </li>
+<li>C3. Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehyuk Cha, Sang-Wook Kim, and Young Kyun Shin. exploiting the uflip benchmark for analyzing ssds performance. <em>Proceeding of the International Conference on Network Infrastructure and Digital Content (IEEE IC-NIDC)</em>. 458-461. pp. Beijing, China. 2014. 9.19-21 </li>
+<li>C2. Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Duck-Ho Bae, and Sang-Wook Kim. running data mining algorithms on ssds. <em>Proceeding of the International Conference on Emerging Databases-Technologies,  Applications,  and Theory (EDB)</em>. 180-183. pp. Jeju Island, Korea. 2013. 8.19-21 </li>
+<li>C1. <strong>Yong-Yeon Jo</strong>, Duck-Ho Bae, and Sang-Wook Kim. efficient computations of link-based similarity measures on the gpu. <em>Proceeding of the IEEE International Conference on Network Infrastructure and Digital Content (IEEE IC-NIDC)</em>. 261-265. pp. Beijing, China. 2012. 9.21-23 </li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Domestic"><strong>Domestic</strong><a class="anchor-link" href="#Domestic">&#182;</a></h3><ul>
+<li>C16. <strong>조용연</strong>, 정민영, 황보율. 전자의무기록 데이터에서의 적대적 생성 알고리즘 기반 결측값 대치 알고리즘 성능분석. <em>한국정보처리학회 추계학술발표대회</em>. 879-881. pp. 2019.11.01-02 </li>
+<li>C15. 강윤석, <strong>조용연</strong>, 김상욱. ssd 성능에 영향을 주는 특징 분석 방법. <em>한국정보처리학회 춘계학술발표대회</em>. 315-316. pp. 2018. 5.11-12 </li>
+<li>C14. 장명환, <strong>조용연</strong>, 김상욱. 그래프 기반 추천 알고리즘의 효율적인 수행. <em>한국지능시스템학회 춘계학술대회</em>. 149-150. pp. 2018. 4.19-21 </li>
+<li>C13. 강윤석, <strong>조용연</strong>, 차재혁, 배완덕, 김상욱. ssd를 위한 io 트레이스 수행시간 예측 방안. <em>한국컴퓨터종합학술대회</em>. 1653. pp. 2017. 6.18-20 </li>
+<li>C12. <strong>조용연</strong>, 장명환, 김상욱. 실 세계 빅 그래프의 특징을 고려한 싱글 머신 기반 그래프 엔진. <em>한국컴퓨터종합학술대회</em>. 1612. pp. 2017. 6.18-20 </li>
+<li>J3. <strong>조용연</strong>, 김상욱, 배덕호. 효율적인 빅 데이터 마이닝을 위한 issd 기반 협업 처리 방안. <em>한국통신학회논문지</em>. Vol. 42,  No. 02. pp. 460-470. 2017. 2. </li>
+<li>C11. 이현진, <strong>조용연</strong>, 김상욱. flashgraph에서 너비우선탐색 알고리즘의 성능 개선 방안. <em>정보처리학회 춘계학술발표대회</em>. 575-576. pp. 2016. 4.29-30 </li>
+<li>C10. 정문준, <strong>조용연</strong>, 김상욱, 오현옥. 시뮬레이터 기반 issd에서 데이터 마이닝 알고리즘 성능 평가. <em>정보처리학회 추계학술발표대회</em>. 1126-1127. pp. 2015.10.30-31 </li>
+<li>C9. 장명환, <strong>조용연</strong>, 김상욱. graphchi기반의 두 희소 행렬 곱셈. <em>한국컴퓨터종합학술대회</em>. 295-296. pp. 2015. 6.24-26 </li>
+<li>C8. 이규환, <strong>조용연</strong>, 김상욱. 블록 i/o 트레이스 리플레이어에 대한 분석. <em>한국컴퓨터종합학술대회</em>. 1653-1655. pp. 2015. 6.24-26 </li>
+<li>C7. 진동규, 조성우, <strong>조용연</strong>, 김상욱, 오현옥. 스케줄링 알고리즘에 따른 협업 시스템의 성능 분석. <em>정보처리학회 추계학술발표대회</em>. 105-107. pp. 2014.11.07-08 </li>
+<li>C6. 권일택, <strong>조용연</strong>, 김상욱. 빅 데이터를 위한 행렬 곱셈의 성능 분석. <em>정보처리학회 추계학술발표대회</em>. 747-749. pp. 2014.11.07-08 </li>
+<li>C5. 이인혁, 이규환, 강윤석, <strong>조용연</strong>, 김상욱. ssd 성능 비교를 위한 i/o 트레이스 리플레이어 분석. <em>정보처리학회 추계학술발표대회</em>. 757-758. pp. 2014.11.07-08 </li>
+<li>C4. 정승훈, 이재성, 강윤석, <strong>조용연</strong>, 배덕호, 김상욱, 강주영, 차재혁. oltp환경에서 ssd의 성능 분석. <em>한국정보과학회 추계학술발표대회</em>. 318-319. pp. 2013.11.15-16 </li>
+<li>C3. 조성우, <strong>조용연</strong>, 배덕호, 김상욱, 오현옥. intelligent ssd에서 이질 스케줄링 알고리즘 적용을 통한 프로그램 성능 향상 방안. <em>한국정보과학회 추계학술발표대회</em>. 292-293. pp. 2013.11.15-16 </li>
+<li>J2. <strong>조용연</strong>, 배덕호, 김상욱. gpu 기반의 외적을 통한 두 희소행렬 곱셈방안. <em>한국정보과학회논문지</em>. Vol. 19,  No. 10. pp. 524-528. 2013. 1. </li>
+<li>C2. <strong>조용연</strong>, 배덕호, 김상욱. gpu기반 희소행렬 곱셈의 성능 분석. <em>한국통신학회 동계종합학술발표회</em>. 354-355. pp. 2013. 1.30-2013.02.01 </li>
+<li>J1. <strong>조용연</strong>, 배덕호, 김상욱. gpu를 이용한 그래프에서 링크 기반 유사도 계산 방안의 성능 평가. <em>한국정보과학회논문지</em>. Vol. 18,  No. 5. pp. 404-408. 2012. 5. </li>
+<li>C1. <strong>조용연</strong>, 배덕호, 김상욱. gpu를 이용한 그래프에서 링크 기반 유사도 계산 방안의 성능 평가. <em>한국정보과학회 추계학술발표대회</em>. 346-347. pp. 2011. 6.29-2011.07.01 </li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">printmd</span><span class="p">(</span><span class="s1">&#39;# Project </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">md_str</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
 <span class="n">df_pj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Resume.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;Project&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_pj</span><span class="p">)):</span>
@@ -13308,81 +13378,6 @@ $( document ).ready(code_toggle);
 <div class="output_wrapper">
 <div class="output">
 
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h1 id="Publication">Publication<a class="anchor-link" href="#Publication">&#182;</a></h1>
-</div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h3 id="International-Journal"><strong>International Journal</strong><a class="anchor-link" href="#International-Journal">&#182;</a></h3><ol>
-<li><strong>Yong-Yeon Jo</strong>, Younghoon Cho, Soo YounLee, Joon-myoung Kwon, Kyung-Hee Kim, Ki-Hyun Jeon, Soohyun Cho, Jinsik Park, and Byung-Hee Oh. Explainable artificial intelligence to detect atrial fibrillation using electrocardiogram. <em>International Journal of Cardiology</em>. Available online. pp. nan. 2020.12</li>
-<li>Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehyuk Cha, Wan D. Bae, and Sang-Wook Kim. FORESEE: An Effective Efficient Framework for Estimating the Execution Times of IO Traces on the SSD. <em>IEEE Transactions on Computers</em>. Available online. pp. nan. 2020.11</li>
-<li><strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Sang-Wook Kim, and Kyungsik Han. Efficient processing of recommendation algorithms on a single-machine-based graph engine. <em>Journal of Supercomputing</em>. Vol. 76. pp. 7985–8002. 2018.07</li>
-<li><strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, Sung-Woo Cho, Duck-Ho Bae, and Hyunok Oh. High-performance data mining with intelligent SSD. <em>Journal of Cluster Computing</em>. Vol. 20 No. 2. pp. 1155-1166. 2017.02</li>
-<li>Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehhyuk Cha, Sang-Wook Kim, and Young Kyun Shin. The uFLIP benchmark revisited for evaluating SSDs. <em>Journal of Communication Systems</em>. Vol. 29. pp. 2100-2111. 2016.09</li>
-<li>Duck-Ho Bae, Jin-Hyung Kim, <strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, Hyunok Oh, and Chanik Park. Intelligent SSD: a turbo for big data mining. <em>Computer Science and Information Systems</em>. Vol. 13 No. 2. pp. 375-394. 2016.08</li>
-</ol>
-<h3 id="International-Conference"><strong>International Conference</strong><a class="anchor-link" href="#International-Conference">&#182;</a></h3><ol>
-<li><strong>Yong-Yeon Jo</strong>, Young Sang Choi, Hyun Woo Par, Jaehyeok Lee, Hyojung Jung, Hyo-Eun Kim, Kyounglan Ko, Chan Wha Lee, Hyo Soung Cha, and Yul Hwangbo. Impact of Image Compression on Deep Learning based Classification Performance: Mammogram. <em>Radiological Society of North America (RSNA) Annual Meeting</em>. pp. nan. Virtual. 2020.11.29-12.05</li>
-<li>JeongMyung Lee, Seokwon Kang, YongSeung Yu, <strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, and Yongjun Park. Optimization of a GPU-based Sparse Matrix Multiplication for Large Sparse Networks. <em>IEEE International Conference on Data Engineering (IEEE ICDE)</em>. pp. 925-936. Dallas, USA. 2020.04.20-24</li>
-<li><strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Sang-Wook Kim and Sunju Park. RealGraph: a graph engine leveraging the power-law distribution of real-world graphs. <em>Proceeding of the World Wide Web (WWW) Conference</em>. pp. 807-817. San Francisco, USA. 2019.05.13-17</li>
-<li>Myung-Hwan Jang, <strong>Yong-Yeon Jo</strong>, and Sang-Wook Kim. Graph-based recommendation on single-machine based graph engines: a performance study. <em>Proceeding of the International Conference on Fuzzy Theory and Its Applications (iFUZZY)</em>. pp. 173-175. Daegu, Korea. 2018.11.14-17</li>
-<li><strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Hyungsoo Jung, and Sang-Wook Kim. A high-performance graph engine for efficient social network analysis. <em>Proceeding of the World Wide Web (WWW) Conference</em>. pp. 61-62. Lyon, France. 2018.04.23-27</li>
-<li>Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehyuk Cha, Wan D. Bae, and Sang-Wook Kim. FORESEE: a framework for effective and efficient estimation of the execution time of an IO trace on the SSD. <em>Proceeding of the International Conference on Information and Knowledge Management (ACM CIKM)</em>. pp. 2123-2126. Pan Pacific, Singapore,. 2017.10.06-10</li>
-<li><strong>Yong-Yeon Jo</strong>, Kyuhwan Lee, Myung-Hwan Jang, Sang-Wook Kim, and Eunjee Song. Efficient processing of large-scale sparse matrix-matrix multiplications on a single machine. <em>Proceeding of the IEEE International Conference on Systems, MAN, and Cybernetics Society (IEEE SMC)</em>. pp. 1908-1913. Banff, Canada. 2017.10.05-08</li>
-<li><strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, and Sang-Wook Kim. Efficient processing of alternating least squares on a single machine. <em>Proceeding of the International Conference on Emerging Database (EDB)</em>. pp. 58-67. Busan, Korea. 2017.08.07-09</li>
-<li><strong>Yong-Yeon Jo</strong>,Jiwon Hong, Myung-Hwan Jang, Jae-Geun Bang, and Sang-Wook Kim. Data locality in graph engines: implications and preliminary experimental results. <em>Proceeding of the International Conference on Information and Knowledge Management (ACM CIKM)</em>. pp. 1885-1888. Indianapolis, USA. 2016.10.24-28</li>
-<li><strong>Yong-Yeon Jo</strong>, Sungwoo Cho, Sang-Wook Kim, and Hyunok Oh. Collaborative processing of data-intensive algorithms with CPU,  intelligent SSD, and GPU. <em>Proceeding of the International Conference on ACM/SIGAPP Symposium on Applied Computing (ACM SAC)</em>. pp. 1865-1870. Pisa, Italy. 2016.04.04-08</li>
-<li><strong>Yong-Yeon Jo</strong>, Moonjun Chung, Sang-Wook Kim, and Hyunok Oh. Data mining in intelligent SSD: simulation-based evaluation. <em>Proceeding of the International Conference on Big Data and Smart Computing (BigComp)</em>. pp. 123 - 128. Hong Kong, China. 2016.01.18-20</li>
-<li><strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, and Duck-Ho Bae. Efficient sparse matrix multiplication on GPU for large social network analysis. <em>Proceeding of the International Conference on Information and Knowledge Management (ACM CIKM)</em>. pp. 1261- 1270. Melbourne, Australia. 2015.10.19-23</li>
-<li><strong>Yong-Yeon Jo</strong>, SungWoo Cho, Sang-Wook Kim, Duck-Ho Bae, and Hyunok Oh. On running data-Intensive algorithms with intelligent SSD and host CPU: a collaborative approach. <em>Proceeding of the International Conference on ACM/SIGAPP Symposium on Applied Computing (ACM SAC)</em>. pp. 2060-2065. Salamanca, Spain. 2015.04.13-17</li>
-<li><strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, and Duck-Ho Bae. GPU-based matrix multiplication methods for social networks analysis. <em>Proceeding of the International Conference on Research in Adaptive and Convergent Systems (ACM RACS)</em>. pp. 309-313. Baltimore, USA. 2014.10.05-08</li>
-<li>Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehyuk Cha, Sang-Wook Kim, and Young Kyun Shin. Exploiting the uFLIP benchmark for analyzing SSDs performance. <em>Proceeding of the International Conference on Network Infrastructure and Digital Content (IEEE IC-NIDC)</em>. pp. 458-461. Beijing, China. 2014.09.19-21</li>
-<li>Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Duck-Ho Bae, and Sang-Wook Kim. Running data mining algorithms on SSDs. <em>Proceeding of the International Conference on Emerging Databases-Technologies,  Applications,  and Theory (EDB)</em>. pp. 180-183. Jeju Island, Korea. 2013.08.19-21</li>
-<li><strong>Yong-Yeon Jo</strong>, Duck-Ho Bae, and Sang-Wook Kim. Efficient computations of link-based similarity measures on the GPU. <em>Proceeding of the IEEE International Conference on Network Infrastructure and Digital Content (IEEE IC-NIDC)</em>. pp. 261-265. Beijing, China. 2012.09.21-23</li>
-</ol>
-<h3 id="Korean-Journal"><strong>Korean Journal</strong><a class="anchor-link" href="#Korean-Journal">&#182;</a></h3><ol>
-<li><strong>조용연</strong>, 김상욱, 배덕호. 효율적인 빅 데이터 마이닝을 위한 iSSD 기반 협업 처리 방안. <em>한국통신학회논문지</em>. Vol. 42,  No. 02. pp. 460-470. 2017.02</li>
-<li><strong>조용연</strong>, 배덕호, 김상욱. GPU 기반의 외적을 통한 두 희소행렬 곱셈방안. <em>한국정보과학회논문지</em>. Vol. 19,  No. 10. pp. 524-528. 2013.01</li>
-<li><strong>조용연</strong>, 배덕호, 김상욱. GPU를 이용한 그래프에서 링크 기반 유사도 계산 방안의 성능 평가. <em>한국정보과학회논문지</em>. Vol. 18,  No. 5. pp. 404-408. 2012.05</li>
-</ol>
-<h3 id="Korean-Conference"><strong>Korean Conference</strong><a class="anchor-link" href="#Korean-Conference">&#182;</a></h3><ol>
-<li><strong>조용연</strong>, 정민영, 황보율. 전자의무기록 데이터에서의 적대적 생성 알고리즘 기반 결측값 대치 알고리즘 성능분석. <em>한국정보처리학회 추계학술발표대회</em>. pp. 879-881. 2019.11.01-02</li>
-<li>강윤석, <strong>조용연</strong>, 김상욱. SSD 성능에 영향을 주는 특징 분석 방법. <em>한국정보처리학회 춘계학술발표대회</em>. pp. 315-316. 2018.05.11-12</li>
-<li>장명환, <strong>조용연</strong>, 김상욱. 그래프 기반 추천 알고리즘의 효율적인 수행. <em>한국지능시스템학회 춘계학술대회</em>. pp. 149-150. 2018.04.19-21</li>
-<li><strong>조용연</strong>, 장명환, 김상욱. 실 세계 빅 그래프의 특징을 고려한 싱글 머신 기반 그래프 엔진. <em>한국컴퓨터종합학술대회</em>. pp. 1612. 2017.06.18-20</li>
-<li>강윤석, <strong>조용연</strong>, 차재혁, 배완덕, 김상욱. SSD를 위한 IO 트레이스 수행시간 예측 방안. <em>한국컴퓨터종합학술대회</em>. pp. 1653. 2017.06.18-20</li>
-<li>이현진, <strong>조용연</strong>, 김상욱. FlashGraph에서 너비우선탐색 알고리즘의 성능 개선 방안. <em>정보처리학회 춘계학술발표대회</em>. pp. 575-576. 2016.04.29-30</li>
-<li>정문준, <strong>조용연</strong>, 김상욱, 오현옥. 시뮬레이터 기반 iSSD에서 데이터 마이닝 알고리즘 성능 평가. <em>정보처리학회 추계학술발표대회</em>. pp. 1126-1127. 2015.10.30-31</li>
-<li>이규환, <strong>조용연</strong>, 김상욱. 블록 I/O 트레이스 리플레이어에 대한 분석. <em>한국컴퓨터종합학술대회</em>. pp. 1653-1655. 2015.06.24-26</li>
-<li>장명환, <strong>조용연</strong>, 김상욱. GraphChi기반의 두 희소 행렬 곱셈. <em>한국컴퓨터종합학술대회</em>. pp. 295-296. 2015.06.24-26</li>
-<li>이인혁, 이규환, 강윤석, <strong>조용연</strong>, 김상욱. SSD 성능 비교를 위한 I/O 트레이스 리플레이어 분석. <em>정보처리학회 추계학술발표대회</em>. pp. 757-758. 2014.11.07-08</li>
-<li>권일택, <strong>조용연</strong>, 김상욱. 빅 데이터를 위한 행렬 곱셈의 성능 분석. <em>정보처리학회 추계학술발표대회</em>. pp. 747-749. 2014.11.07-08</li>
-<li>진동규, 조성우, <strong>조용연</strong>, 김상욱, 오현옥. 스케줄링 알고리즘에 따른 협업 시스템의 성능 분석. <em>정보처리학회 추계학술발표대회</em>. pp. 105-107. 2014.11.07-08</li>
-<li>조성우, <strong>조용연</strong>, 배덕호, 김상욱, 오현옥. Intelligent SSD에서 이질 스케줄링 알고리즘 적용을 통한 프로그램 성능 향상 방안. <em>한국정보과학회 추계학술발표대회</em>. pp. 292-293. 2013.11.15-16</li>
-<li>정승훈, 이재성, 강윤석, <strong>조용연</strong>, 배덕호, 김상욱, 강주영, 차재혁. OLTP환경에서 SSD의 성능 분석. <em>한국정보과학회 추계학술발표대회</em>. pp. 318-319. 2013.11.15-16</li>
-<li><strong>조용연</strong>, 배덕호, 김상욱. GPU기반 희소행렬 곱셈의 성능 분석. <em>한국통신학회 동계종합학술발표회</em>. pp. 354-355. 2013.01.30-2013.02.01</li>
-<li><strong>조용연</strong>, 배덕호, 김상욱. GPU를 이용한 그래프에서 링크 기반 유사도 계산 방안의 성능 평가. <em>한국정보과학회 추계학술발표대회</em>. pp. 346-347. 2011.06.29-2011.07.01</li>
-</ol>
-<hr>
-
-</div>
-
-</div>
 
 <div class="output_area">
 
