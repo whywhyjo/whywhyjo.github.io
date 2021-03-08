@@ -13088,7 +13088,7 @@ $( document ).ready(code_toggle);
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
@@ -13112,8 +13112,8 @@ $( document ).ready(code_toggle);
 </li>
 <li><p><strong>Address</strong>:</p>
 <ul>
-<li>533, Eonju-ro, Gangnam-gu, Seoul, 06138, Republic of Korea </li>
-<li>서울특별시 강남구 역삼동 언주로 533</li>
+<li>4F, 163 Yangjaecheon-ro, Gangnam-gu, Seoul, Korea</li>
+<li>서울특별시 강남구 양재천로 163 4층</li>
 </ul>
 </li>
 <li><p><strong>Research Interest</strong></p>
@@ -13131,7 +13131,8 @@ $( document ).ready(code_toggle);
 
 <hr>
 <h2 id="Experience">Experience<a class="anchor-link" href="#Experience">&#182;</a></h2><ul>
-<li>Manager, Data R&amp;D Team, Lifesemantics, Republic of Korea: 2020.09-Present</li>
+<li>Researcher, AI R&amp;D Team, MedicalAI, Republic of Korea: 2021.03-Present</li>
+<li>Manager, Data R&amp;D Team, Lifesemantics, Republic of Korea: 2020.09-2021.03</li>
 <li>Researcher, HealthCare AI Team, National Cancer Center, Republic of Korea: 2018.03-2020.09</li>
 <li>Visiting Scholar, Baylor University, Texas, United States: 2016.08-2016.09</li>
 </ul>
@@ -13157,7 +13158,7 @@ $( document ).ready(code_toggle);
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">md_str_paper_i</span><span class="o">=</span><span class="s1">&#39;# Publication</span><span class="se">\n\</span>
@@ -13174,7 +13175,7 @@ $( document ).ready(code_toggle);
 
 <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df_i</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
     <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Yong-Yeon Jo&#39;</span><span class="p">,</span><span class="s1">&#39;__Yong-Yeon Jo__&#39;</span><span class="p">)</span>
-    <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
     <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span>
     <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
     <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">])</span> <span class="k">else</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
@@ -13205,7 +13206,7 @@ $( document ).ready(code_toggle);
 
 <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df_i</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
     <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;조용연&#39;</span><span class="p">,</span><span class="s1">&#39;__조용연__&#39;</span><span class="p">)</span>
-    <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
     <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span>
     <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
     <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">])</span> <span class="k">else</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
@@ -13243,9 +13244,19 @@ $( document ).ready(code_toggle);
 
 <div class="output_markdown rendered_html output_subarea ">
 <h1 id="Publication">Publication<a class="anchor-link" href="#Publication">&#182;</a></h1><h6 id="*J:Journal,-C:Conference">*J:Journal, C:Conference<a class="anchor-link" href="#*J:Journal,-C:Conference">&#182;</a></h6><h3 id="International"><strong>International</strong><a class="anchor-link" href="#International">&#182;</a></h3><ul>
-<li>J06. <strong>Yong-Yeon Jo</strong>, Younghoon Cho, Soo YounLee, Joon-myoung Kwon, Kyung-Hee Kim, Ki-Hyun Jeon, Soohyun Cho, Jinsik Park, and Byung-Hee Oh. explainable artificial intelligence to detect atrial fibrillation using electrocardiogram. <em>International Journal of Cardiology</em>. Available online. pp.nan. 2020.12. </li>
-<li>J05. Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehyuk Cha, Wan D. Bae, and Sang-Wook Kim. foresee: an effective efficient framework for estimating the execution times of io traces on the ssd. <em>IEEE Transactions on Computers</em>. Available online. pp.nan. 2020.11. </li>
-<li>C17. <strong>Yong-Yeon Jo</strong>, Young Sang Choi, Hyun Woo Par, Jaehyeok Lee, Hyojung Jung, Hyo-Eun Kim, Kyounglan Ko, Chan Wha Lee, Hyo Soung Cha, and Yul Hwangbo. impact of image compression on deep learning based classification performance: mammogram. <em>Radiological Society of North America (RSNA) Annual Meeting</em>. pp.nan. Virtual. 2020.11.29-12.05. </li>
+<li>J13. <strong>Yong-Yeon Jo</strong>, Younghoon Cho, Soo YounLee, Joon-myoung Kwon, Kyung-Hee Kim, Ki-Hyun Jeon, Soohyun Cho, Jinsik Park, and Byung-Hee Oh. explainable artificial intelligence to detect atrial fibrillation using electrocardiogram. <em>International Journal of Cardiology</em>. Vol. 328. pp.104-110. 2021.04. </li>
+<li>J12. <strong>Yong-Yeon Jo</strong>, Young Sang Choi, Hyo-Eun Kim, Kyounglan Ko, Chan Wha Lee, Hyo Soung Cha, and Yul Hwangbo. impact of image compression on deep learning-based mammogram classification. <em>Scientific Reports</em>. accepted to appear. pp.nan. 2021.04. </li>
+<li>C20. Yoon-Ji Lee, <strong>Yong-Yeon Jo</strong>, Min-Seung Jung, Yong-Hyeon Cho, Hyun Shin, Jang-Hyeon Ban, and Joon-myoung Kwon. performance of deep learning models using scalograms for electrocardiograms on classification of myocardial infarction. <em>IEEE International Conference on Image Processing (IEEE ICIP)</em>. pp.nan. . 2021.04.. </li>
+<li>C19. <strong>Yong-Yeon Jo</strong> and Joon-Myoung Kwon. ecgt2t: electrocardiogram synthesis from two asynchronous leads to ten leads. <em>arxiv preprint arxiv:2103.00006</em>. pp.1-8. . 2021.03.. </li>
+<li>J11. Joon-myoung Kwon, Min-Seung Jung, Kyung-Hee Kim, <strong>Yong-Yeon Jo</strong>, Jae-Hyun Shin, Yong-Hyeon Cho, Yoon-Ji Lee, Jang-Hyeon Ban, Ki-Hyun Jeon, Soo Youn Lee, Jinsik Park, and Byung-Hee Oh. artificial intelligence for detecting electrolyte imbalance using electrocardiography. <em>Annals of Noninvasive Electrocardiology</em>. accepted to appear. pp.nan. 2021.03. </li>
+<li>J10. <strong>Yong-Yeon Jo</strong>, Joon-myoung Kwon, Ki-Hyun Jeon, Yong-Hyeon Cho, Jae-Hyun Shin, Yoon-Ji Lee, Min-Seung Jung, Jang-Hyeon Ban, Kyung-Hee Kim, Soo Youn Lee,, Jinsik Park, and Byung-Hee Oh. artificial intelligence to diagnose paroxysmal supraventricular tachycardia using electrocardiography during normal sinus rhythm. <em>European Heart Journal - Digital Health</em>. available online. pp.ztab025. 2021.02.9 </li>
+<li>J09. <strong>Yong-Yeon Jo</strong>, Jai Hong Han, Hyun Woo Park, Hyojung Jung, Jaedong Lee, Jipmin Jung, Hyo Soung Cha, Dae Kyung Sohn, Yul Hwangbo. prediction of the prolonged length of hospital stay after cancer surgery using the machine learning on electronic health records: retrospective cross-sectional study. <em>Journal of Medical Internet Research (JMIR) Medical Informatics</em>. Vol 9. No. 2. pp.e23147. 2021.02.22 </li>
+<li>J08. Joon-myoung Kwon, <strong>Yong-Yeon Jo</strong>, Soo Youn Lee, and Kyung-Hee Kim. artificial intelligence using electrocardiography: strengths and pitfalls. <em>European Heart Journal</em>. accepted to appear. pp.nan. 2021.02. </li>
+<li>C18. Min-Seung Jung, Yoon-Ji Lee, <strong>Yong-Yeon Jo</strong>, and Joon-Myoung Kwon. performance comparison of decomposition methods for ecg classification. <em>Annual International Conference of the IEEE Engineering in Medicine and Biology Society (IEEE EMBC)</em>. pp.nan. . 2021.02.. </li>
+<li>J07. <strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Sunju Park, Sang-Wook Kim. a data layout with good data locality for single-machine based graph engines. <em>IEEE Transactions on Computers</em>. submitted. pp.nan. 2021.01. </li>
+<li>J06. <strong>Yong-Yeon Jo</strong>, Jong-Hwan Jang, Joon-Myoung Kwon, Hyung-Chul Lee, Chul-Woo Jung, Seonjeong Byun and Han‐Gil Jeong. predicting intraoperative hypotension using deep learning with waveforms of arterial blood pressure, electroencephalogram, and electrocardiogram. <em>JAMA Network Open</em>. submitted. pp.nan. 2021.01. </li>
+<li>J05. Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehyuk Cha, Wan D. Bae, and Sang-Wook Kim. foresee: an effective efficient framework for estimating the execution times of io traces on the ssd. <em>IEEE Transactions on Computers</em>. available online. pp.nan. 2020.11. </li>
+<li>C17. <strong>Yong-Yeon Jo</strong>, Young Sang Choi, Hyun Woo Par, Jaehyeok Lee, Hyojung Jung, Hyo-Eun Kim, Kyounglan Ko, Chan Wha Lee, Hyo Soung Cha, and Yul Hwangbo. impact of image compression on deep learning based classification performance: mammogram. <em>Radiological Society of North America (RSNA) Annual Meeting</em>. pp.1. Virtual. 2020.11.29-12.05. </li>
 <li>C16. JeongMyung Lee, Seokwon Kang, YongSeung Yu, <strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, and Yongjun Park. optimization of a gpu-based sparse matrix multiplication for large sparse networks. <em>IEEE International Conference on Data Engineering (IEEE ICDE)</em>. pp.925-936. Dallas, USA. 2020.04.20-24. </li>
 <li>C15. <strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Sang-Wook Kim and Sunju Park. realgraph: a graph engine leveraging the power-law distribution of real-world graphs. <em>Proceeding of the World Wide Web (WWW) Conference</em>. pp.807-817. San Francisco, USA. 2019.05.13-17. </li>
 <li>C14. Myung-Hwan Jang, <strong>Yong-Yeon Jo</strong>, and Sang-Wook Kim. graph-based recommendation on single-machine based graph engines: a performance study. <em>Proceeding of the International Conference on Fuzzy Theory and Its Applications (iFUZZY)</em>. pp.173-175. Daegu, Korea. 2018.11.14-17. </li>
@@ -13301,7 +13312,7 @@ $( document ).ready(code_toggle);
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">printmd</span><span class="p">(</span><span class="s1">&#39;# Project </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
