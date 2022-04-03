@@ -13087,19 +13087,6 @@ $( document ).ready(code_toggle);
 </script>
 
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
-<span class="k">def</span> <span class="nf">printmd</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">string</span><span class="p">))</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
@@ -13123,6 +13110,7 @@ $( document ).ready(code_toggle);
 <li>Electronic Medical Record (EMR/EHR)</li>
 </ul>
 </li>
+<li>MLOPS</li>
 <li>High-performance in Graph processing on Graphic Processor Unit (GPU) and Single Machine</li>
 </ul>
 </li>
@@ -13131,7 +13119,7 @@ $( document ).ready(code_toggle);
 
 <hr>
 <h2 id="Experience">Experience<a class="anchor-link" href="#Experience">&#182;</a></h2><ul>
-<li>Team leader, AI R&amp;D Team, MedicalAI, Republic of Korea: 2021.03-Present</li>
+<li>Team leader, AI Team, MedicalAI, Republic of Korea: 2021.03-Present</li>
 <li>Manager, Data R&amp;D Team, Lifesemantics, Republic of Korea: 2020.09-2021.03</li>
 <li>Researcher, HealthCare AI Team, National Cancer Center, Republic of Korea: 2018.03-2020.09</li>
 <li>Visiting Scholar, Baylor University, Texas, United States: 2016.08-2016.09</li>
@@ -13157,81 +13145,6 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">md_str_paper_i</span><span class="o">=</span><span class="s1">&#39;# Publication</span><span class="se">\n\</span>
-<span class="s1">###### *J:Journal, C:Conference</span><span class="se">\n\</span>
-<span class="s1">### **International**</span><span class="se">\n</span><span class="s1">&#39;</span>
-
-<span class="n">df_i</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Resume.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;International&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">df_i</span> <span class="o">=</span> <span class="n">df_i</span><span class="p">[</span><span class="o">~</span><span class="n">df_i</span><span class="p">[</span><span class="s1">&#39;Etc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;X&#39;</span><span class="p">])]</span>
-<span class="n">df_i</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span><span class="s1">&#39;Month&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-
-<span class="n">df_i</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_i</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-<span class="n">num_jour</span><span class="p">,</span> <span class="n">cnt_jour</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_i</span><span class="p">[</span><span class="n">df_i</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;J&#39;</span><span class="p">])]),</span> <span class="mi">0</span>
-<span class="n">num_conf</span><span class="p">,</span> <span class="n">cnt_conf</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_i</span><span class="p">[</span><span class="n">df_i</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;C&#39;</span><span class="p">])]),</span> <span class="mi">0</span>
-
-<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df_i</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Etc&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span>
-        <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Yong-Yeon Jo&#39;</span><span class="p">,</span><span class="s1">&#39;__Yong-Yeon Jo__&#39;</span><span class="p">)</span>
-        <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-        <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span>
-        <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-        <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">])</span> <span class="k">else</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-        <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Location&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Location&#39;</span><span class="p">])</span> <span class="k">else</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Location&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">]):</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">]</span> <span class="o">=</span><span class="s1">&#39;&#39;</span> 
-        <span class="n">date</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:4d}</span><span class="s1">.</span><span class="si">{:02d}</span><span class="s1">.</span><span class="si">{:}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]),</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">]),</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">])</span>
-
-        <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">==</span><span class="s1">&#39;J&#39;</span><span class="p">:</span>
-            <span class="n">paper_id</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}{:02d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">],</span><span class="n">num_jour</span><span class="o">-</span><span class="n">cnt_jour</span><span class="p">)</span>
-            <span class="n">cnt_jour</span> <span class="o">+=</span><span class="mi">1</span>
-            <span class="n">md_str_paper_i</span><span class="o">+=</span><span class="s1">&#39;- </span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1">. *</span><span class="si">{}</span><span class="s1">*. </span><span class="si">{}</span><span class="s1">. pp.</span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>\
-                <span class="n">paper_id</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Page&#39;</span><span class="p">],</span><span class="n">date</span><span class="p">)</span>
-            
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">paper_id</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}{:02d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">],</span><span class="n">num_conf</span><span class="o">-</span><span class="n">cnt_conf</span><span class="p">)</span>
-            <span class="n">cnt_conf</span><span class="o">+=</span><span class="mi">1</span>
-            <span class="n">md_str_paper_i</span><span class="o">+=</span><span class="s1">&#39;- </span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1">. *</span><span class="si">{}</span><span class="s1">*. pp.</span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1">. </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>\
-                <span class="n">paper_id</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Page&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Location&#39;</span><span class="p">],</span><span class="n">date</span><span class="p">)</span>
-
-<span class="n">md_str_paper_d</span> <span class="o">=</span> <span class="s1">&#39;### **Domestic**</span><span class="se">\n</span><span class="s1">&#39;</span>
-<span class="n">df_i</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Resume.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;Domestic&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">df_i</span> <span class="o">=</span> <span class="n">df_i</span><span class="p">[</span><span class="o">~</span><span class="n">df_i</span><span class="p">[</span><span class="s1">&#39;Etc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;X&#39;</span><span class="p">])]</span>
-<span class="n">df_i</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span><span class="s1">&#39;Month&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-
-<span class="n">df_i</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_i</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-<span class="n">num_jour</span><span class="p">,</span> <span class="n">cnt_jour</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_i</span><span class="p">[</span><span class="n">df_i</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;J&#39;</span><span class="p">])]),</span> <span class="mi">0</span>
-<span class="n">num_conf</span><span class="p">,</span> <span class="n">cnt_conf</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_i</span><span class="p">[</span><span class="n">df_i</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;C&#39;</span><span class="p">])]),</span> <span class="mi">0</span>
-
-<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df_i</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;조용연&#39;</span><span class="p">,</span><span class="s1">&#39;__조용연__&#39;</span><span class="p">)</span>
-    <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-    <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span>
-    <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-    <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">])</span> <span class="k">else</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">]):</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">]</span> <span class="o">=</span><span class="s1">&#39;&#39;</span> 
-    <span class="n">date</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:4d}</span><span class="s1">.</span><span class="si">{:02d}</span><span class="s1">.</span><span class="si">{:}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]),</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">]),</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">])</span>
-
-    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">==</span><span class="s1">&#39;J&#39;</span><span class="p">:</span>
-        <span class="n">paper_id</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}{:02d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">],</span><span class="n">num_jour</span><span class="o">-</span><span class="n">cnt_jour</span><span class="p">)</span>
-        <span class="n">cnt_jour</span> <span class="o">+=</span><span class="mi">1</span>
-        <span class="n">md_str_paper_d</span><span class="o">+=</span><span class="s1">&#39;- </span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1">. *</span><span class="si">{}</span><span class="s1">*. </span><span class="si">{}</span><span class="s1">. pp.</span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>\
-            <span class="n">paper_id</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Issue&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Page&#39;</span><span class="p">],</span><span class="n">date</span><span class="p">)</span>
-        
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">paper_id</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}{:02d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">],</span><span class="n">num_conf</span><span class="o">-</span><span class="n">cnt_conf</span><span class="p">)</span>
-        <span class="n">cnt_conf</span><span class="o">+=</span><span class="mi">1</span>
-        <span class="n">md_str_paper_d</span><span class="o">+=</span><span class="s1">&#39;- </span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1">. *</span><span class="si">{}</span><span class="s1">*. pp.</span><span class="si">{}</span><span class="s1">. </span><span class="si">{}</span><span class="s1">. </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>\
-            <span class="n">paper_id</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Author&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Proceeding&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Page&#39;</span><span class="p">],</span><span class="n">date</span><span class="p">)</span>
-
-<span class="n">printmd</span><span class="p">(</span><span class="n">md_str_paper_i</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">------------</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">+</span><span class="n">md_str_paper_d</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">------------</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -13245,6 +13158,8 @@ $( document ).ready(code_toggle);
 
 <div class="output_markdown rendered_html output_subarea ">
 <h1 id="Publication">Publication<a class="anchor-link" href="#Publication">&#182;</a></h1><h6 id="*J:Journal,-C:Conference">*J:Journal, C:Conference<a class="anchor-link" href="#*J:Journal,-C:Conference">&#182;</a></h6><h3 id="International"><strong>International</strong><a class="anchor-link" href="#International">&#182;</a></h3><ul>
+<li>J17. Yeji Lee, Byungjin Choi, Min Sung Lee, Uram Jin, Seokyoung Yoon, <strong>Yong-Yeon Jo</strong>, and Joon-myoung Kwon. An artificial intelligence electrocardiogram analysis for detecting cardiomyopathy in the peripartum period. <em>International Journal of Cardiology</em>. Vol. 352. pp.72-77. 2022.04. </li>
+<li>J16. Joon-myoung Kwon, <strong>Yong-Yeon Jo</strong><em>, Soo Youn Lee, Seonmi Kang, Seon-Yu Lim, Min Sung Lee, and Kyung-Hee Kim. Artificial Intelligence-Enhanced Smartwatch ECG for Heart Failure-Reduced Ejection Fraction Detection by Generating 12-Lead ECG. </em>Diagnostics*. Vol. 12 No. 3. pp.645. 2022.03. </li>
 <li>J15. <strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Sunju Park, Sang-Wook Kim. A Data Layout with Good Data Locality for Single-Machine based Graph Engines. <em>IEEE Transactions on Computers</em>. accepted to appear. pp.nan. 2021.08. </li>
 <li>C18. Myung-Hwan Jang, <strong>Yong-Yeon Jo</strong>, and Sang-Wook Kim. RealGraph-Web: A Graph Analysis Platform on the Web. <em>Proceeding of International Conference on Very Large Data Bases (VLDB), Demonstration Track (accepted to appar)</em>. pp.nan. Copenhagen, Denmark. 2021.08.16-20. </li>
 <li>J14. Joon-myoung Kwon, <strong>Yong-Yeon Jo</strong>, Soo Youn Lee, and Kyung-Hee Kim. Artificial intelligence using electrocardiography: Strengths and pitfalls. <em>European Heart Journal</em>. Vol 42. No 30. pp.2896-2898. 2021.08.7 </li>
@@ -13312,73 +13227,6 @@ $( document ).ready(code_toggle);
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">printmd</span><span class="p">(</span><span class="s1">&#39;# Project </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">md_str</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
-<span class="n">df_pj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Resume.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;Project&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_pj</span><span class="p">)):</span>
-    <span class="c1">#title = &#39;&#39;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;PERIOD&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;Present&#39;</span><span class="p">)</span> <span class="o">&gt;-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;__&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;TITLE_ENG&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;__&#39;</span>
-        <span class="n">period</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;PERIOD&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Present&#39;</span><span class="p">,</span><span class="s1">&#39;*Present*&#39;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span> 
-        <span class="n">title</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;TITLE_ENG&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-        <span class="n">period</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;PERIOD&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
-    <span class="n">md_str</span><span class="o">+=</span> <span class="p">(</span><span class="s1">&#39;- &#39;</span><span class="o">+</span> <span class="n">title</span> <span class="o">+</span>
-              <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;Institute_eng&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> 
-              <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="n">period</span> <span class="o">+</span>
-              <span class="s1">&#39;</span><span class="se">\n\t</span><span class="s1">- &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;TITLE_KOR&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
-              <span class="s1">&#39;, &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_pj</span><span class="p">[</span><span class="s1">&#39;Institute&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-    
-<span class="n">md_str</span> <span class="o">+=</span> <span class="s1">&#39;-------------------&#39;</span>    
-<span class="n">printmd</span><span class="p">(</span><span class="n">md_str</span><span class="p">)</span>
-
-
-<span class="n">printmd</span><span class="p">(</span><span class="s1">&#39;# Talk &amp; Lecture </span><span class="se">\n</span><span class="s1"> &#39;</span><span class="p">)</span>
-<span class="n">md_str</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
-<span class="n">df_aw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Resume.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;Talk&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_aw</span><span class="p">)):</span>
-    <span class="n">md_str</span><span class="o">+=</span><span class="p">(</span>
-            <span class="s1">&#39;- &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_aw</span><span class="p">[</span><span class="s1">&#39;Invitation&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
-            <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_aw</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">+</span>
-            <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_aw</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
-           <span class="p">)</span>
-    <span class="n">md_str</span><span class="o">+=</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">md_str</span><span class="o">+=</span><span class="s1">&#39;--------------&#39;</span>
-<span class="n">printmd</span><span class="p">(</span><span class="n">md_str</span><span class="p">)</span>
-
-<span class="n">printmd</span><span class="p">(</span><span class="s1">&#39;# Award </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">md_str</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
-<span class="n">df_aw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Resume.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;Award&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_aw</span><span class="p">)):</span>
-    <span class="n">md_str</span><span class="o">+=</span><span class="p">(</span>
-            <span class="s1">&#39;- &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_aw</span><span class="p">[</span><span class="s1">&#39;AWARD&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
-            <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_aw</span><span class="p">[</span><span class="s1">&#39;INSTITUE&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span>
-            <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_aw</span><span class="p">[</span><span class="s1">&#39;YEAR&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
-           <span class="p">)</span>
-<span class="n">md_str</span><span class="o">+=</span><span class="s1">&#39;--------------&#39;</span>
-<span class="n">printmd</span><span class="p">(</span><span class="n">md_str</span><span class="p">)</span>
-
-<span class="n">printmd</span><span class="p">(</span><span class="s1">&#39;# Patent </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">md_str</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
-<span class="n">df_aw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Resume.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;Patent&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_aw</span><span class="p">)):</span>
-    <span class="n">md_str</span><span class="o">+=</span><span class="p">(</span>
-            <span class="s1">&#39;- &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_aw</span><span class="p">[</span><span class="s1">&#39;TITLE_KOR&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
-            <span class="s1">&#39;. [*&#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_aw</span><span class="p">[</span><span class="s1">&#39;ETC&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;*]: &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_aw</span><span class="p">[</span><span class="s1">&#39;NUMBER&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span>
-            <span class="s1">&#39;. &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_aw</span><span class="p">[</span><span class="s1">&#39;YEAR&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">+</span>
-            <span class="s1">&#39;</span><span class="se">\n\t</span><span class="s1">- &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_aw</span><span class="p">[</span><span class="s1">&#39;TITLE_ENG&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
-           <span class="p">)</span>
-<span class="n">md_str</span><span class="o">+=</span><span class="s1">&#39;-----------------------------------------&#39;</span>
-<span class="n">printmd</span><span class="p">(</span><span class="n">md_str</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -13404,6 +13252,10 @@ $( document ).ready(code_toggle);
 
 <div class="output_markdown rendered_html output_subarea ">
 <ul>
+<li>nan. 메디컬에이아이. 2021.05-2021.12<ul>
+<li>인공지능 학습용 데이터 구축 사업 - 심장질환 심초음파 및 심전도 데이터, 정보화진흥원</li>
+</ul>
+</li>
 <li>An Open Source Medical Imaging Project for Artificial Intelligence Applications in Digital Healthcare. National Cancer Center. 2020.06-2020.11<ul>
 <li>질병 진단용 인공지능 이미지 데이터 구축 사업 - 유방암 및 감염병 질환 진단을 위한 의료 영상 구축 사업, 정보화진흥원</li>
 </ul>
@@ -13463,6 +13315,8 @@ $( document ).ready(code_toggle);
 
 <div class="output_markdown rendered_html output_subarea ">
 <ul>
+<li><p>GTC 2022. ECG and Deep Learning to Detect Disease at Home [S41933]. 2022.03.23</p>
+</li>
 <li><p>전남대학교. Data science: real-world graph and healthcare. 2020.01.31</p>
 </li>
 <li><p>메디플렉스 세종병원. 파이썬 기초 및 활용. 2019.12.26</p>
