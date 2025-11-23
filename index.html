@@ -160,11 +160,11 @@
 
       footer {
         text-align: center;
-        margin-top: 50px;
-        padding-top: 30px;
+        margin-top: 20px;
+        padding-top: 15px;
         border-top: 1px solid #e0e0e0;
         color: #999;
-        font-size: 0.9em;
+        font-size: 0.75em;
       }
 
       .pdf-viewer-container {
@@ -211,11 +211,11 @@
 
       footer {
         text-align: center;
-        margin-top: 30px;
-        padding-top: 20px;
+        margin-top: 20px;
+        padding-top: 15px;
         border-top: 1px solid #e0e0e0;
         color: #999;
-        font-size: 0.9em;
+        font-size: 0.75em;
       }
 
       @media (max-width: 768px) {
@@ -255,10 +255,23 @@
           const container = document.getElementById("pdfContainer");
           container.innerHTML = ""; // Clear loading message
 
-          // Render all pages
-          for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+          // Create array to store canvases in order
+          const canvases = new Array(pdf.numPages);
+          let renderedCount = 0;
+
+          // Render all pages sequentially to maintain order
+          function renderPage(pageNum) {
+            if (pageNum > pdf.numPages) {
+              // All pages rendered, append in order
+              canvases.forEach((canvas) => {
+                if (canvas) container.appendChild(canvas);
+              });
+              return;
+            }
+
             pdf.getPage(pageNum).then(function (page) {
-              const viewport = page.getViewport({ scale: 1.5 });
+              // Higher scale for better resolution
+              const viewport = page.getViewport({ scale: 2.5 });
               const canvas = document.createElement("canvas");
               const ctx = canvas.getContext("2d");
               canvas.height = viewport.height;
@@ -271,10 +284,25 @@
 
               page.render(renderContext).promise.then(function () {
                 canvas.className = "pdf-page";
-                container.appendChild(canvas);
+                // Store canvas at correct index
+                canvases[pageNum - 1] = canvas;
+                renderedCount++;
+
+                // If all pages rendered, append in order
+                if (renderedCount === pdf.numPages) {
+                  canvases.forEach((canvas) => {
+                    if (canvas) container.appendChild(canvas);
+                  });
+                }
               });
+
+              // Render next page
+              renderPage(pageNum + 1);
             });
           }
+
+          // Start rendering from page 1
+          renderPage(1);
         },
         function (error) {
           // Error loading PDF - show download option only
