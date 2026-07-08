@@ -1,325 +1,1053 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yong-Yeon Jo (조용연)</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Yong-Yeon Jo (조용연) — Curriculum Vitae</title>
+<meta name="description" content="Yong-Yeon Jo (조용연) — Managing Director, AI Group, MedicalAI. Deep learning for electrocardiograms and cardiovascular diagnosis." />
+<style>
+  :root {
+    --navy:#26428b; --navy-2:#1e3370; --accent:#26428b;
+    --ink:#1a1d24; --muted:#5c6470; --faint:#8a929e;
+    --bg:#ffffff; --surface:#f6f7f9; --surface-2:#eef0f4; --border:#e6e8ec;
+    --max:860px; --radius:12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --navy:#9fb3ef; --navy-2:#b9c7f5; --accent:#9fb3ef;
+      --ink:#e7eaf0; --muted:#a4adbb; --faint:#7b8494;
+      --bg:#0f1219; --surface:#161a23; --surface-2:#1d2330; --border:#272d3a;
+    }
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; scroll-padding-top:74px; }
+  body {
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",
+      "Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif;
+    color:var(--ink); background:var(--bg); line-height:1.6;
+    font-size:16px; -webkit-font-smoothing:antialiased;
+  }
+  a { color:var(--navy); text-decoration:none; }
+  a:hover { text-decoration:underline; }
 
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, sans-serif;
-        line-height: 1.6;
-        color: #333;
-        background-color: #f5f5f5;
-      }
+  /* Top bar */
+  .topbar {
+    position:sticky; top:0; z-index:50;
+    background:color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter:saturate(160%) blur(12px);
+    -webkit-backdrop-filter:saturate(160%) blur(12px);
+    border-bottom:1px solid var(--border);
+  }
+  .topbar-inner {
+    max-width:var(--max); margin:0 auto; padding:12px 24px;
+    display:flex; align-items:center; gap:20px;
+  }
+  .brand { font-weight:700; letter-spacing:-.01em; color:var(--ink); font-size:.98rem; }
+  .brand span { color:var(--faint); font-weight:500; }
+  .nav { margin-left:auto; display:flex; gap:22px; }
+  .nav a { color:var(--muted); font-size:.86rem; font-weight:500; }
+  .nav a:hover { color:var(--navy); text-decoration:none; }
+  .btn-pdf {
+    display:inline-flex; align-items:center; gap:6px;
+    background:var(--navy); color:#fff; padding:8px 15px; border-radius:8px;
+    font-size:.82rem; font-weight:600; white-space:nowrap;
+  }
+  @media (prefers-color-scheme: dark) { .btn-pdf { color:#0f1219; } }
+  .btn-pdf:hover { background:var(--navy-2); text-decoration:none; transform:translateY(-1px); }
+  .btn-pdf { transition:transform .15s, background .15s; }
 
-      .container {
-        max-width: 100%;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #f5f5f5;
-      }
+  main { max-width:var(--max); margin:0 auto; padding:0 24px 80px; }
 
-      header {
-        text-align: center;
-        margin-bottom: 40px;
-        padding-bottom: 30px;
-        border-bottom: 2px solid #26428b;
-      }
+  /* Hero */
+  .hero { padding:60px 0 34px; border-bottom:1px solid var(--border); }
+  .hero h1 {
+    font-size:clamp(2.1rem,6vw,3rem); font-weight:800; letter-spacing:-.025em;
+    line-height:1.08; color:var(--ink);
+  }
+  .hero h1 .kr { color:var(--faint); font-weight:600; }
+  .hero .role { margin-top:14px; font-size:1.12rem; color:var(--ink); font-weight:600; }
+  .hero .role .at { color:var(--navy); }
+  .hero .tagline { margin-top:4px; color:var(--muted); font-size:1rem; }
+  .contacts { margin-top:20px; display:flex; flex-wrap:wrap; gap:9px; }
+  .chip {
+    display:inline-flex; align-items:center; gap:7px;
+    background:var(--surface); border:1px solid var(--border);
+    padding:6px 13px; border-radius:999px; font-size:.85rem; color:var(--muted);
+  }
+  .chip a { color:var(--muted); }
+  .chip:hover { border-color:var(--navy); }
+  .chip svg { opacity:.8; }
 
-      h1 {
-        font-size: 2.5em;
-        color: #26428b;
-        margin-bottom: 10px;
-      }
+  /* Stats */
+  .stats {
+    margin-top:26px; display:grid; grid-template-columns:repeat(4,1fr); gap:12px;
+  }
+  .stat {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius); padding:16px 14px; text-align:center;
+  }
+  .stat .num { font-size:1.7rem; font-weight:800; color:var(--navy); letter-spacing:-.02em; }
+  .stat .lbl { font-size:.74rem; color:var(--faint); text-transform:uppercase; letter-spacing:.06em; margin-top:2px; }
 
-      .subtitle {
-        font-size: 1.1em;
-        color: #666;
-        margin-bottom: 20px;
-      }
+  .about { margin-top:30px; font-size:1.02rem; color:var(--muted); max-width:70ch; }
 
-      .resume-buttons {
-        margin-top: 20px;
-      }
+  /* Sections */
+  section { padding-top:44px; }
+  .sec-label {
+    display:flex; align-items:center; gap:12px; margin-bottom:22px;
+  }
+  .sec-label h2 {
+    font-size:.82rem; font-weight:700; text-transform:uppercase; letter-spacing:.13em;
+    color:var(--navy);
+  }
+  .sec-label .rule { flex:1; height:1px; background:var(--border); }
+  .sec-label .count { font-size:.78rem; color:var(--faint); font-weight:600; }
 
-      .btn {
-        display: inline-block;
-        padding: 12px 24px;
-        margin: 5px;
-        text-decoration: none;
-        border-radius: 5px;
-        font-weight: bold;
-        transition: all 0.3s;
-      }
+  ul { list-style:none; }
 
-      .btn-primary {
-        background-color: #26428b;
-        color: white;
-      }
+  /* Entries (exp/edu/patent) */
+  .entry { padding:16px 0; border-bottom:1px solid var(--border); }
+  .entry:last-child { border-bottom:none; }
+  .entry-head { display:flex; justify-content:space-between; align-items:baseline; gap:16px; }
+  .entry-head h3 { font-size:1.02rem; font-weight:650; color:var(--ink); }
+  .entry .date { font-size:.84rem; color:var(--faint); white-space:nowrap; font-variant-numeric:tabular-nums; }
+  .entry-sub { color:var(--muted); font-size:.93rem; margin-top:3px; }
+  .entry-extra { color:var(--faint); font-size:.86rem; margin-top:2px; font-style:italic; }
+  .pat-title { font-weight:600 !important; font-size:.96rem !important; }
+  .pat-num { font-variant-numeric:tabular-nums; margin-right:10px; }
 
-      .btn-primary:hover {
-        background-color: #1e3370;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      }
+  /* Filter */
+  .filters { display:flex; gap:8px; margin-bottom:8px; }
+  .filter {
+    background:var(--surface); border:1px solid var(--border); color:var(--muted);
+    padding:6px 14px; border-radius:999px; font-size:.82rem; font-weight:600;
+    cursor:pointer; font-family:inherit; transition:all .15s;
+  }
+  .filter:hover { border-color:var(--navy); color:var(--navy); }
+  .filter.active { background:var(--navy); border-color:var(--navy); color:#fff; }
+  @media (prefers-color-scheme: dark) { .filter.active { color:#0f1219; } }
 
-      .btn-secondary {
-        background-color: #666;
-        color: white;
-      }
+  /* Publications */
+  .pub-list { margin-top:4px; }
+  .pub {
+    display:flex; gap:18px; padding:18px 14px; margin:0 -14px;
+    border-radius:10px; border-bottom:1px solid var(--border);
+    transition:background .15s;
+  }
+  .pub:hover { background:var(--surface); }
+  .pub-main { flex:1; min-width:0; }
+  .pub-authors { font-size:.87rem; color:var(--muted); }
+  .pub-authors strong { color:var(--ink); }
+  .pub-title {
+    display:inline-block; margin:3px 0; font-size:1.0rem; font-weight:650;
+    color:var(--ink); line-height:1.4;
+  }
+  a.pub-title:hover { color:var(--navy); text-decoration:none; }
+  a.pub-title .ext { color:var(--faint); vertical-align:middle; }
+  a.pub-title:hover .ext { color:var(--navy); }
+  .pub-venue { font-size:.87rem; color:var(--muted); font-style:italic; }
+  .pub-meta { display:flex; flex-direction:column; align-items:flex-end; gap:7px; flex-shrink:0; }
+  .pub-meta .year { font-size:.9rem; font-weight:700; color:var(--faint); font-variant-numeric:tabular-nums; }
+  .badge {
+    font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em;
+    padding:3px 9px; border-radius:999px; white-space:nowrap;
+  }
+  .badge-journal { background:color-mix(in srgb,var(--navy) 14%,transparent); color:var(--navy); }
+  .badge-conference { background:var(--surface-2); color:var(--muted); }
+  .badge-reg { background:color-mix(in srgb,var(--navy) 14%,transparent); color:var(--navy); }
+  .badge-app { background:var(--surface-2); color:var(--muted); }
 
-      .btn-secondary:hover {
-        background-color: #555;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      }
+  /* Service / awards / talks list */
+  .svc { display:flex; gap:18px; padding:11px 0; border-bottom:1px solid var(--border); }
+  .svc:last-child { border-bottom:none; }
+  .svc-year { font-weight:700; color:var(--navy); font-size:.9rem; min-width:74px; font-variant-numeric:tabular-nums; }
+  .svc-list { color:var(--muted); font-size:.93rem; }
+  .svc-list strong { color:var(--ink); font-weight:600; }
+  .svc-org { display:block; color:var(--faint); font-size:.85rem; }
 
-      .section {
-        margin-bottom: 40px;
-      }
+  footer {
+    margin-top:60px; padding-top:24px; border-top:1px solid var(--border);
+    text-align:center; color:var(--faint); font-size:.82rem;
+  }
+  footer a { color:var(--muted); }
 
-      .section h2 {
-        font-size: 1.8em;
-        color: #26428b;
-        margin-bottom: 20px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #e0e0e0;
-      }
-
-      .info-item {
-        margin-bottom: 15px;
-      }
-
-      .info-item strong {
-        color: #26428b;
-        display: inline-block;
-        min-width: 120px;
-      }
-
-      .info-item a {
-        color: #26428b;
-        text-decoration: none;
-      }
-
-      .info-item a:hover {
-        text-decoration: underline;
-      }
-
-      ul {
-        list-style: none;
-        padding-left: 0;
-      }
-
-      ul li {
-        margin-bottom: 8px;
-        padding-left: 20px;
-        position: relative;
-      }
-
-      ul li:before {
-        content: "•";
-        color: #26428b;
-        font-weight: bold;
-        position: absolute;
-        left: 0;
-      }
-
-      .experience-item,
-      .education-item {
-        margin-bottom: 25px;
-        padding-left: 20px;
-        border-left: 3px solid #26428b;
-      }
-
-      .experience-item h3,
-      .education-item h3 {
-        font-size: 1.2em;
-        color: #333;
-        margin-bottom: 5px;
-      }
-
-      .experience-item .organization,
-      .education-item .institution {
-        color: #666;
-        font-style: italic;
-      }
-
-      .experience-item .date,
-      .education-item .date {
-        color: #999;
-        font-size: 0.9em;
-      }
-
-      footer {
-        text-align: center;
-        margin-top: 20px;
-        padding-top: 15px;
-        border-top: 1px solid #e0e0e0;
-        color: #999;
-        font-size: 0.75em;
-      }
-
-      .pdf-viewer-container {
-        width: 100%;
-        border: none;
-        border-radius: 0;
-        box-shadow: none;
-        background: white;
-        overflow: auto;
-        max-height: calc(100vh - 150px);
-        margin: 0;
-      }
-
-      .pdf-page {
-        margin: 0 auto;
-        display: block;
-        page-break-after: always;
-      }
-
-      .pdf-page:last-child {
-        page-break-after: auto;
-      }
-
-      .loading {
-        text-align: center;
-        padding: 40px;
-        color: #666;
-      }
-
-      .pdf-page {
-        margin: 0 auto;
-        display: block;
-        page-break-after: always;
-      }
-
-      .pdf-page:last-child {
-        page-break-after: auto;
-      }
-
-      .pdf-controls {
-        text-align: center;
-        margin: 20px 0;
-      }
-
-      footer {
-        text-align: center;
-        margin-top: 20px;
-        padding-top: 15px;
-        border-top: 1px solid #e0e0e0;
-        color: #999;
-        font-size: 0.75em;
-      }
-
-      @media (max-width: 768px) {
-        .container {
-          padding: 20px 15px;
-        }
-
-        h1 {
-          font-size: 2em;
-        }
-
-        .btn {
-          display: block;
-          margin: 10px 0;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="pdf-viewer-container" id="pdfContainer">
-        <div class="loading">Loading PDF...</div>
-      </div>
-      <footer>
-        <p>Last updated: <span id="last-updated"></span></p>
-      </footer>
+  @media (max-width:640px) {
+    .nav { display:none; }
+    .stats { grid-template-columns:repeat(2,1fr); }
+    .pub { flex-direction:column; gap:8px; }
+    .pub-meta { flex-direction:row; align-items:center; }
+    .hero { padding:40px 0 28px; }
+    .entry-head { flex-direction:column; gap:2px; }
+  }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">Yong-Yeon Jo <span>· 조용연</span></div>
+      <nav class="nav">
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#patents">Patents</a>
+      </nav>
+      <a class="btn-pdf" href="resume.pdf" download>
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        CV (PDF)
+      </a>
     </div>
+  </div>
 
-    <script>
-      // Set PDF.js worker
-      pdfjsLib.GlobalWorkerOptions.workerSrc =
-        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+  <main>
+    <header class="hero">
+      <h1>Yong-Yeon Jo <span class="kr">조용연</span></h1>
+      <p class="role"><span class="at">Managing Director, AI Group</span>, MedicalAI</p>
+      <p class="tagline">Deep learning for electrocardiograms and cardiovascular diagnosis</p>
+      <div class="contacts">
+        <span class="chip"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg><a href="mailto:yyjo0430@gmail.com">yyjo0430@gmail.com</a></span>
+        <span class="chip"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-1.7c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg><a href="https://github.com/whywhyjo" target="_blank" rel="noopener">github.com/whywhyjo</a></span>
+        <span class="chip"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Gangnam-gu, Seoul, Republic of Korea</span>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num">58</div><div class="lbl">Publications</div></div>
+        <div class="stat"><div class="num">31</div><div class="lbl">Journal</div></div>
+        <div class="stat"><div class="num">27</div><div class="lbl">Conference</div></div>
+        <div class="stat"><div class="num">16</div><div class="lbl">Patents</div></div>
+      </div>
+      <p class="about">Managing Director of the AI Group at MedicalAI, leading the research and development of artificial-intelligence models for electrocardiogram (ECG) analysis and cardiovascular diagnosis. Ph.D. in Computer Science with a background in large-scale data systems, now focused on deep learning for biosignals — including generative modeling, explainable AI, and test-time adaptation for real-world clinical deployment.</p>
+    </header>
 
-      // Load PDF and render all pages
-      pdfjsLib.getDocument("resume.pdf").promise.then(
-        function (pdf) {
-          const container = document.getElementById("pdfContainer");
-          container.innerHTML = ""; // Clear loading message
+    <section id="publications">
+      <div class="sec-label"><h2>Publications</h2><div class="rule"></div><span class="count">2012–2026</span></div>
+      <div class="filters">
+        <button class="filter active" data-f="all">All</button>
+        <button class="filter" data-f="journal">Journal</button>
+        <button class="filter" data-f="conference">Conference</button>
+      </div>
+      <ul class="pub-list">
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors">Dong-hyuk Seo, Ui Jong Kim, <strong>Yong-Yeon Jo</strong>, Joon-myoung Kwon, Won-Yong Shin, and Sang-Wook Kim</p>
+          <span class="pub-title">Accurate Reconstruction of the Standard 12-Lead ECG from a Single Lead based on Inherent Principles of ECG</span>
+          <p class="pub-venue">International Conference on Medical Image Computing and Computer-Assisted Intervention (MICCAI)</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2026</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Hak Seung Lee, Junho Song, Moonki Jung, <strong>Yong-Yeon Jo</strong>, Joon-myoung Kwon, and Jun Hwan Cho</p>
+          <a class="pub-title" href="https://doi.org/10.1093/ehjdh/ztag053" target="_blank" rel="noopener">Prediction of vasovagal syncope using artificial intelligence-enabled smartwatch photoplethysmography-derived heart rate variability <span class="ext"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></a>
+          <p class="pub-venue">European Heart Journal - Digital Health</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2026</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, Jong-Hwan Jang, JaeHo Park, Jin Yu, Joon-myoung Kwon, and Junho Song</p>
+          <a class="pub-title" href="https://ieeexplore.ieee.org/document/11463653" target="_blank" rel="noopener">Can Meta-Learning Address The Challenges of Biosignal Personalization? <span class="ext"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></a>
+          <p class="pub-venue">IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2026</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors">Jong-Hwan Jang, Junho Song, and <strong>Yong-Yeon Jo</strong></p>
+          <a class="pub-title" href="https://ieeexplore.ieee.org/document/11464346" target="_blank" rel="noopener">CoFE: A Framework Generating Counterfactual ECG for Explainable Cardiac AI-Diagnostics <span class="ext"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></a>
+          <p class="pub-venue">IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2026</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Tae-Min Rhee, Sora Kang, Min Sung Lee, Ga In Han, Ah-Hyun Yoo, Jong-Hwan Jang, <strong>Yong-Yeon Jo</strong>, Jeong Min Son, Joon-myoung Kwon, Su-Yeon Choi, Hak Seung Lee, and Heesun Lee</p>
+          <a class="pub-title" href="https://doi.org/10.1016/j.jacadv.2026.102660" target="_blank" rel="noopener">Artificial Intelligence-Driven Electrocardiogram Screening for Asymptomatic Left Ventricular Systolic Dysfunction in the General Population <span class="ext"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></a>
+          <p class="pub-venue">JACC: Advances</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2026</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Soo Youn Lee, Ah-Hyun Yoo, Sora Kang, Jong-Hwan Jang, <strong>Yong-Yeon Jo</strong>, Jeong Min Son, Min Sung Lee, Ga In Han, Joon-myoung Kwon, Hak Seung Lee, and Kyung-Hee Kim</p>
+          <a class="pub-title" href="https://link.springer.com/article/10.1186/s44348-026-00066-9" target="_blank" rel="noopener">Detection and prognostic stratification of left ventricular systolic dysfunction in left bundle branch block using an artificial intelligence-enabled electrocardiography <span class="ext"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></a>
+          <p class="pub-venue">Journal of Cardiovascular Imaging</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2026</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Jaeho Park, <strong>Yong-Yeon Jo</strong>, Jong-Hwan Jang, Jin Yu, Joon-myoung Kwon, and Junho Song</p>
+          <a class="pub-title" href="https://ieeexplore.ieee.org/document/11363447" target="_blank" rel="noopener">VCP: Visible Context Propagation for Electrocardiogram Recovery <span class="ext"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></a>
+          <p class="pub-venue">IEEE Open Journal of Signal Processing</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2026</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Hak Seung Lee, Sooyeon Lee, Sora Kang, Ga In Han, Ah-Hyun Yoo, Jong-Hwan Jang, <strong>Yong-Yeon Jo</strong>, Jeong Min Son, Min Sung Lee, Joon-myoung Kwon, and Kyung-Hee Kim</p>
+          <a class="pub-title" href="https://doi.org/10.1016/j.jacadv.2025.102089" target="_blank" rel="noopener">Artificial Intelligence-Enabled ECG Screening for LVSD in LBBB: Evaluating Model Development and Transfer Learning Approaches <span class="ext"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></a>
+          <p class="pub-venue">JACC: Advances</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2025</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Min Sung Lee, Jong-Hwan Jang, Sora Kang, Ga In Han, Ah-Hyun Yoo, <strong>Yong-Yeon Jo</strong>, Jeong Min Son, Joon-myoung Kwon, Sooyeon Lee, Ji Sung Lee, Hak Seung Lee, and Kyung-Hee Kim</p>
+          <span class="pub-title">Transparent and robust Artificial intelligence-driven Electrocardiogram model for Left Ventricular Systolic Dysfunction</span>
+          <p class="pub-venue">Diagnostics, Vol 15. No. 15</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2025</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Jong-Hwan Jang, <strong>Yong-Yeon Jo</strong>, Sora Kang, Jeong Min Son, Hak Seung Lee, Joon-myoung Kwon, and Min Sung Lee</p>
+          <span class="pub-title">A novel XAI framework for explainable AI-ECG using generative counterfactual XAI (GCX)</span>
+          <p class="pub-venue">Scientific Reports, Vol 15. No. 1</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2025</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors">Jaeho Park, TaeJun Park, Joon-myoung Kwon, and <strong>Yong-Yeon Jo</strong></p>
+          <span class="pub-title">Benchmarking ECG Delineation using Deep Neural Network-based Semantic Segmentation Models</span>
+          <p class="pub-venue">Proceedings of the sixth Conference on Health, Inference, and Learning, PMLR 287</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2025</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, Byeong Tak Lee, Jeong-Ho Hong, Hak Seung Lee, Joon-myoung Kwon, and Beom Joon Kim</p>
+          <span class="pub-title">Test-Time Calibration: A Framework for Personalized Test-Time Adaptation in Real-World Biosignals</span>
+          <p class="pub-venue">Proceedings of the sixth Conference on Health, Inference, and Learning, PMLR 287</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2025</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Byeong Tak Lee, <strong>Yong-Yeon Jo</strong>, and Joon-Myoung Kwon</p>
+          <span class="pub-title">Unveiling the secrets of neural network scaling for ECG classification</span>
+          <p class="pub-venue">Informatics in Medicine Unlocked, Vol 55.</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2025</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors">Jin Yu, JaeHo Park, TaeJun Park, Gyurin Kim, JiHyun Lee, Min Sung Lee, Joon-myoung Kwon, Jeong Min Son, and <strong>Yong-Yeon Jo</strong></p>
+          <a class="pub-title" href="https://arxiv.org/abs/2505.03781" target="_blank" rel="noopener">ALFRED: Ask a Large-language model For Reliable ECG Diagnosis <span class="ext"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></a>
+          <p class="pub-venue">arXiv preprint</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2025</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Hak Seung Lee, Sora Kang, <strong>Yong-Yeon Jo</strong>, Jeong Min Son, Min Sung Lee, Joon-myoung Kwon, and Kyung-Hee Kim</p>
+          <span class="pub-title">AI-Enabled Smartwatch ECG: A Feasibility Study for Early Prediction and Prevention of Heart Failure Rehospitalization</span>
+          <p class="pub-venue">JACC: Basic to Translational Science, In Press, Corrected Proof</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2025</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong> and Byeong Tak Lee and Beom Joon Kim and Jeong-Ho Hong and Hak Seung Lee, and Joon-myoung Kwon</p>
+          <span class="pub-title">New Test-Time Scenario for Biosignal: Concept and Its Approach</span>
+          <p class="pub-venue">Findings paper presented at Machine Learning for Health (ML4H), arXiv:2411.17785</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2024</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Ki-Hyun Jeon, Hak Seung Lee, Sora Kang, Jong-Hwan Jang, <strong>Yong-Yeon Jo</strong>, Jeong Min Son, Min Sung Lee, Joon-myoung Kwon, Ju-Seung Kwun, Hyoung-Won Cho, Si-Hyuck Kang, Wonjae Lee, Chang-Hwan Yoon, Jung-Won Suh, Tae-Jin Youn, and In-Ho Chae</p>
+          <span class="pub-title">AI-enabled ECG index for predicting left ventricular dysfunction in patients with ST-segment elevation myocardial infarction</span>
+          <p class="pub-venue">Scientific Reports, Vol 14. No. 1</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2024</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Junho Song, Jong-Hwan Jang, Byeong Tak Lee, DongGyun Hong, Joon-myoung Kwon, <strong>Yong-Yeon Jo</strong></p>
+          <span class="pub-title">Foundation Models for Electrocardiograms</span>
+          <p class="pub-venue">arXiv preprint, arXiv:2407.0711</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2024</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Byeong Tak Lee, Joon-myoung Kwon, <strong>Yong-Yeon Jo</strong></p>
+          <span class="pub-title">TADA: Temporal Adversarial Data Augmentation for Time Series Data</span>
+          <p class="pub-venue">arXiv preprint, arXiv:2407.15174</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2024</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Ki-Hyun Jeon, Jong-Hwan Jang, Sora Kang, Hak Seung Lee, Min Sung Lee, Jeong Min Son, <strong>Yong-Yeon Jo</strong>, Tae Jun Park, Il-Young Oh, Joon-myoung Kwon, Ji Hyun Lee</p>
+          <span class="pub-title">Identifying atrial fibrillation with sinus rhythm electrocardiogram in embolic stroke of undetermined source: a validation study with insertable cardiac monitors</span>
+          <p class="pub-venue">Korean Circulation Journal, Vol 53. No. 11</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2023</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, Young Sang Choi, Jong-Hwan Jang, and Joon-Myoung Kwon</p>
+          <span class="pub-title">ECGT2T: Towards Synthesizing Twelve-Lead Electrocardiograms from Two Asynchronous Leads</span>
+          <p class="pub-venue">Proceedings of the IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2023</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors">Byeong Tak Lee, Joon-myoung Kwon and <strong>Yong-Yeon Jo</strong></p>
+          <span class="pub-title">Can Knowledge Distillation Really Transfer Inductive Bias?</span>
+          <p class="pub-venue">Proceeding of the Applied Machine Learning Methods for Time Series Forecasting (AMLTS)</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2022</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors">Byeong Tak Lee, Seon-Yu Lim, Youngjae Song, Joon-myoung Kwon and <strong>Yong-Yeon Jo</strong></p>
+          <span class="pub-title">Efficient Data Augmentation Policy for Electrocardiograms</span>
+          <p class="pub-venue">Proceeding of the International Conference on Information and Knowledge Management (ACM CIKM)</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2022</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Sunju Park, Sang-Wook Kim</p>
+          <span class="pub-title">A Data Layout with Good Data Locality for Single-Machine based Graph Engines</span>
+          <p class="pub-venue">IEEE Transactions on Computers, Vol. 71 No. 8</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2022</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Yeji Lee, Byungjin Choi, Min Sung Lee, Uram Jin, Seokyoung Yoon, <strong>Yong-Yeon Jo</strong>, and Joon-myoung Kwon</p>
+          <span class="pub-title">An artificial intelligence electrocardiogram analysis for detecting cardiomyopathy in the peripartum period</span>
+          <p class="pub-venue">International Journal of Cardiology, Vol. 352</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2022</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Joon-myoung Kwon, <strong>Yong-Yeon Jo</strong>*, Soo Youn Lee, Seonmi Kang, Seon-Yu Lim, Min Sung Lee, and Kyung-Hee Kim</p>
+          <span class="pub-title">Artificial Intelligence-Enhanced Smartwatch ECG for Heart Failure-Reduced Ejection Fraction Detection by Generating 12-Lead ECG</span>
+          <p class="pub-venue">Diagnostics, Vol. 12 No. 3</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2022</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehyuk Cha, Wan D. Bae, and Sang-Wook Kim</p>
+          <span class="pub-title">FORESEE: An Effective Efficient Framework for Estimating the Execution Times of IO Traces on the SSD</span>
+          <p class="pub-venue">IEEE Transactions on Computers, Vol 70. No. 12</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2021</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Joon-myoung Kwon, Ye Rang Lee, Min-Seung Jung, Yoon-Ji Lee, <strong>Yong-Yeon Jo</strong>, Da-Young Kang, Soo Youn Lee, Yong-Hyeon Cho, Jae-Hyun Shin, Jang-Hyeon Ban, and Kyung-Hee Kim</p>
+          <span class="pub-title">Deep learning model for screening sepsis using electrocardiography</span>
+          <p class="pub-venue">Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine, open access</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2021</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors">Myung-Hwan Jang, <strong>Yong-Yeon Jo</strong>, and Sang-Wook Kim</p>
+          <span class="pub-title">RealGraph-Web: A Graph Analysis Platform on the Web</span>
+          <p class="pub-venue">Proceeding of International Conference on Very Large Data Bases (VLDB), Demonstration Track</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2021</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Joon-myoung Kwon, <strong>Yong-Yeon Jo</strong>, Soo Youn Lee, and Kyung-Hee Kim</p>
+          <span class="pub-title">Artificial intelligence using electrocardiography: Strengths and pitfalls</span>
+          <p class="pub-venue">European Heart Journal, Vol 42. No 30</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2021</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, Joon-myoung Kwon, Ki-Hyun Jeon, Yong-Hyeon Cho, Jae-Hyun Shin, Yoon-Ji Lee, Min-Seung Jung, Jang-Hyeon Ban, Kyung-Hee Kim, Soo Youn Lee, Jinsik Park, and Byung-Hee Oh</p>
+          <span class="pub-title">Detection and classification of arrhythmia using an explainable deep learning model</span>
+          <p class="pub-venue">Journal of Electrocardiology, Vol. 67</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2021</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, Joon-myoung Kwon, Ki-Hyun Jeon, Yong-Hyeon Cho, Jae-Hyun Shin, Yoon-Ji Lee, Min-Seung Jung, Jang-Hyeon Ban, Kyung-Hee Kim, Soo Youn Lee,, Jinsik Park, and Byung-Hee Oh</p>
+          <span class="pub-title">Artificial intelligence to diagnose paroxysmal supraventricular tachycardia using electrocardiography during normal sinus rhythm</span>
+          <p class="pub-venue">European Heart Journal - Digital Health, Vol 2. No 2.</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2021</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, Younghoon Cho, Soo YounLee, Joon-myoung Kwon, Kyung-Hee Kim, Ki-Hyun Jeon, Soohyun Cho, Jinsik Park, and Byung-Hee Oh</p>
+          <span class="pub-title">Explainable artificial intelligence to detect atrial fibrillation using electrocardiogram</span>
+          <p class="pub-venue">International Journal of Cardiology, Vol. 328</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2021</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, Young Sang Choi, Hyo-Eun Kim, Kyounglan Ko, Chan Wha Lee, Hyo Soung Cha, and Yul Hwangbo</p>
+          <span class="pub-title">Impact of image compression on deep learning-based mammogram classification</span>
+          <p class="pub-venue">Scientific Reports, Vol. 11</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2021</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Joon-myoung Kwon, Min-Seung Jung, Kyung-Hee Kim, <strong>Yong-Yeon Jo</strong>, Jae-Hyun Shin, Yong-Hyeon Cho, Yoon-Ji Lee, Jang-Hyeon Ban, Ki-Hyun Jeon, Soo Youn Lee, Jinsik Park, and Byung-Hee Oh</p>
+          <span class="pub-title">Artificial intelligence for detecting electrolyte imbalance using electrocardiography</span>
+          <p class="pub-venue">Annals of Noninvasive Electrocardiology, Vol 26. No. 3</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2021</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, Jai Hong Han, Hyun Woo Park, Hyojung Jung, Jaedong Lee, Jipmin Jung, Hyo Soung Cha, Dae Kyung Sohn, Yul Hwangbo</p>
+          <span class="pub-title">Prediction of the prolonged length of hospital stay after cancer surgery using the machine learning on electronic health records: Retrospective cross-sectional study</span>
+          <p class="pub-venue">Journal of Medical Internet Research Medical Informatics, Vol. 9 No. 2</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2021</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, Jong-Hwan Jang, Joon-Myoung Kwon, Hyung-Chul Lee, Chul-Woo Jung, Seonjeong Byun and Han‐Gil Jeong</p>
+          <span class="pub-title">Predicting Intraoperative Hypotension Using Deep Learning with Waveforms of Arterial Blood Pressure, Electroencephalogram, and Electrocardiogram</span>
+          <p class="pub-venue">PlosOne, open access</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2021</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Joon-myoung Kwon, Soo Youn Lee, Yoon-Ji Lee, <strong>Yong-Yeon Jo</strong>, Min-Seung Jung, Yong-Hyeon Cho, Jae-Hyun Shin, Jang-Hyeon Ban, Kyung-Hee Kim, Jinsik Park, and Byung-Hee Oh</p>
+          <span class="pub-title">Deep learning model for detection of hypoalbuminemia using electrocardiography</span>
+          <p class="pub-venue">Preprints, preprints202101.0408.v1</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2021</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors">JeongMyung Lee, Seokwon Kang, YongSeung Yu, <strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, and Yongjun Park</p>
+          <span class="pub-title">Optimization of a GPU-based sparse matrix multiplication for large sparse networks</span>
+          <p class="pub-venue">Proceeding of IEEE International Conference on Data Engineering (IEEE ICDE)</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2020</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Sang-Wook Kim and Sunju Park</p>
+          <span class="pub-title">RealGraph: A graph engine leveraging the power-law distribution of real-world graphs</span>
+          <p class="pub-venue">Proceeding of the World Wide Web (WWW) Conference</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2019</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors">Myung-Hwan Jang, <strong>Yong-Yeon Jo</strong>, and Sang-Wook Kim</p>
+          <span class="pub-title">Graph-based recommendation on single-machine based graph engines: a performance study</span>
+          <p class="pub-venue">Proceeding of the International Conference on Fuzzy Theory and Its Applications (iFUZZY)</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2018</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Sang-Wook Kim, and Kyungsik Han</p>
+          <span class="pub-title">Efficient processing of recommendation algorithms on a single-machine-based graph engine</span>
+          <p class="pub-venue">Journal of Supercomputing, Vol. 76</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2018</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, Hyungsoo Jung, and Sang-Wook Kim</p>
+          <span class="pub-title">A high-performance graph engine for efficient social network analysis</span>
+          <p class="pub-venue">Proceeding of the World Wide Web (WWW) Conference</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2018</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, Kyuhwan Lee, Myung-Hwan Jang, Sang-Wook Kim, and Eunjee Song</p>
+          <span class="pub-title">Efficient processing of large-scale sparse matrix-matrix multiplications on a single machine</span>
+          <p class="pub-venue">Proceeding of the IEEE International Conference on Systems, MAN, and Cybernetics Society (IEEE SMC)</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2017</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors">Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehyuk Cha, Wan D. Bae, and Sang-Wook Kim</p>
+          <span class="pub-title">FORESEE: a framework for effective and efficient estimation of the execution time of an IO trace on the SSD</span>
+          <p class="pub-venue">Proceeding of the International Conference on Information and Knowledge Management (ACM CIKM)</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2017</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, Myung-Hwan Jang, and Sang-Wook Kim</p>
+          <span class="pub-title">Efficient processing of alternating least squares on a single machine</span>
+          <p class="pub-venue">Proceeding of the International Conference on Emerging Database (EDB)</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2017</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, Sung-Woo Cho, Duck-Ho Bae, and Hyunok Oh</p>
+          <span class="pub-title">High-performance data mining with intelligent SSD</span>
+          <p class="pub-venue">Journal of Cluster Computing, Vol. 20 No. 2</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2017</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>,Jiwon Hong, Myung-Hwan Jang, Jae-Geun Bang, and Sang-Wook Kim</p>
+          <span class="pub-title">Data locality in graph engines: implications and preliminary experimental results</span>
+          <p class="pub-venue">Proceeding of the International Conference on Information and Knowledge Management (ACM CIKM)</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2016</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehhyuk Cha, Sang-Wook Kim, and Young Kyun Shin</p>
+          <span class="pub-title">The uFLIP benchmark revisited for evaluating SSDs</span>
+          <p class="pub-venue">Journal of Communication Systems, Vol. 29</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2016</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="journal">
+        <div class="pub-main">
+          <p class="pub-authors">Duck-Ho Bae, Jin-Hyung Kim, <strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, Hyunok Oh, and Chanik Park</p>
+          <span class="pub-title">Intelligent SSD: a turbo for big data mining</span>
+          <p class="pub-venue">Computer Science and Information Systems, Vol. 13 No. 2</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2016</span>
+          <span class="badge badge-journal">Journal</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, Sungwoo Cho, Sang-Wook Kim, and Hyunok Oh</p>
+          <span class="pub-title">Collaborative processing of data-intensive algorithms with CPU,  intelligent SSD, and GPU</span>
+          <p class="pub-venue">Proceeding of the International Conference on ACM/SIGAPP Symposium on Applied Computing (ACM SAC)</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2016</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, Moonjun Chung, Sang-Wook Kim, and Hyunok Oh</p>
+          <span class="pub-title">Data mining in intelligent SSD: simulation-based evaluation</span>
+          <p class="pub-venue">Proceeding of the International Conference on Big Data and Smart Computing (BigComp)</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2016</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, and Duck-Ho Bae</p>
+          <span class="pub-title">Efficient sparse matrix multiplication on GPU for large social network analysis</span>
+          <p class="pub-venue">Proceeding of the International Conference on Information and Knowledge Management (ACM CIKM)</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2015</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, SungWoo Cho, Sang-Wook Kim, Duck-Ho Bae, and Hyunok Oh</p>
+          <span class="pub-title">On running data-Intensive algorithms with intelligent SSD and host CPU: a collaborative approach</span>
+          <p class="pub-venue">Proceeding of the International Conference on ACM/SIGAPP Symposium on Applied Computing (ACM SAC)</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2015</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, Sang-Wook Kim, and Duck-Ho Bae</p>
+          <span class="pub-title">GPU-based matrix multiplication methods for social networks analysis</span>
+          <p class="pub-venue">Proceeding of the International Conference on Research in Adaptive and Convergent Systems (ACM RACS)</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2014</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors">Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Jaehyuk Cha, Sang-Wook Kim, and Young Kyun Shin</p>
+          <span class="pub-title">Exploiting the uFLIP benchmark for analyzing SSDs performance</span>
+          <p class="pub-venue">Proceeding of the International Conference on Network Infrastructure and Digital Content (IEEE IC-NIDC)</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2014</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors">Yoonsuk Kang, <strong>Yong-Yeon Jo</strong>, Duck-Ho Bae, and Sang-Wook Kim</p>
+          <span class="pub-title">Running data mining algorithms on SSDs</span>
+          <p class="pub-venue">Proceeding of the International Conference on Emerging Databases-Technologies,  Applications,  and Theory (EDB)</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2013</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      <li class="pub" data-type="conference">
+        <div class="pub-main">
+          <p class="pub-authors"><strong>Yong-Yeon Jo</strong>, Duck-Ho Bae, and Sang-Wook Kim</p>
+          <span class="pub-title">Efficient computations of link-based similarity measures on the GPU</span>
+          <p class="pub-venue">Proceeding of the IEEE International Conference on Network Infrastructure and Digital Content (IEEE IC-NIDC)</p>
+        </div>
+        <div class="pub-meta">
+          <span class="year">2012</span>
+          <span class="badge badge-conference">Conference</span>
+        </div>
+      </li>
+      </ul>
+    </section>
 
-          // Create array to store canvases in order
-          const canvases = new Array(pdf.numPages);
-          let renderedCount = 0;
+    <section id="experience">
+      <div class="sec-label"><h2>Experience</h2><div class="rule"></div></div>
+      <ul>
+      <li class="entry">
+        <div class="entry-head">
+          <h3>Managing Director, AI Group</h3><span class="date">2021.03 – Present</span>
+        </div>
+        <p class="entry-sub">MedicalAI · Seoul, Republic of Korea</p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3>Manager, Data R&amp;D Team</h3><span class="date">2020.09 – 2021.03</span>
+        </div>
+        <p class="entry-sub">Lifesemantics · Seoul, Republic of Korea</p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3>Researcher, HealthCare AI Team</h3><span class="date">2018.03 – 2020.09</span>
+        </div>
+        <p class="entry-sub">National Cancer Center · Seoul, Republic of Korea</p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3>Visiting Scholar</h3><span class="date">2016.08 – 2016.09</span>
+        </div>
+        <p class="entry-sub">Baylor University · Texas, United States</p>
+      </li>
+      </ul>
+    </section>
 
-          // Render all pages sequentially to maintain order
-          function renderPage(pageNum) {
-            if (pageNum > pdf.numPages) {
-              // All pages rendered, append in order
-              canvases.forEach((canvas) => {
-                if (canvas) container.appendChild(canvas);
-              });
-              return;
-            }
+    <section id="education">
+      <div class="sec-label"><h2>Education</h2><div class="rule"></div></div>
+      <ul>
+      <li class="entry">
+        <div class="entry-head">
+          <h3>Ph.D., Department of Computer and Software</h3><span class="date">2013.03 – 2018.02</span>
+        </div>
+        <p class="entry-sub">Hanyang University</p><p class="entry-extra">Advisor: Prof. Sang-Wook Kim</p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3>M.S., Department of Electronics Computer Engineering</h3><span class="date">2011.03 – 2013.02</span>
+        </div>
+        <p class="entry-sub">Hanyang University</p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3>B.S., Department of Computer Engineering</h3><span class="date">2007.03 – 2011.02</span>
+        </div>
+        <p class="entry-sub">Hanyang University</p>
+      </li>
+      </ul>
+    </section>
 
-            pdf.getPage(pageNum).then(function (page) {
-              // Higher scale for better resolution
-              const viewport = page.getViewport({ scale: 2.5 });
-              const canvas = document.createElement("canvas");
-              const ctx = canvas.getContext("2d");
-              canvas.height = viewport.height;
-              canvas.width = viewport.width;
+    <section id="patents">
+      <div class="sec-label"><h2>Patents</h2><div class="rule"></div></div>
+      <ul>
+      <li class="entry">
+        <div class="entry-head">
+          <h3 class="pat-title">PREDICTING SYSTEM CAPABLE OF USING VARIOUS TYPE OF ELECTROCARDIOGRAM DATA BASED ON DEEP LEARNING</h3><span class="date">2025</span>
+        </div>
+        <p class="entry-sub"><span class="pat-num">No. 10-2772939</span><span class="badge badge-reg">Granted</span></p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3 class="pat-title">Method, Program and Apparatus for Contrastive Pre-training of Neural Network for Electrocardiogram</h3><span class="date">2025</span>
+        </div>
+        <p class="entry-sub"><span class="pat-num">No. 10-2835815</span><span class="badge badge-reg">Granted</span></p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3 class="pat-title">Apparatus for Generating Electrocardiogram Based on Deep Learning Algorithm</h3><span class="date">2025</span>
+        </div>
+        <p class="entry-sub"><span class="pat-num">No. 10-2772457</span><span class="badge badge-reg">Granted</span></p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3 class="pat-title">Method, Program and Apparatus for Prediction of Health Status Using Electrocardiogram</h3><span class="date">2025</span>
+        </div>
+        <p class="entry-sub"><span class="pat-num">No. 10-20250158729</span><span class="badge badge-app">Filed</span></p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3 class="pat-title">Method, Program and Device for Predicting Disease Based on Neural Network Model</h3><span class="date">2024</span>
+        </div>
+        <p class="entry-sub"><span class="pat-num">No. 10-20250052312</span><span class="badge badge-app">Filed</span></p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3 class="pat-title">Electronic Device for Diagnosing User Disease Based on Biological Signal</h3><span class="date">2023</span>
+        </div>
+        <p class="entry-sub"><span class="pat-num">No. 10-20240069647</span><span class="badge badge-app">Filed</span></p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3 class="pat-title">Method, Program and Apparatus for Updating Neural Network Model for Electrocardiogram Reading</h3><span class="date">2023</span>
+        </div>
+        <p class="entry-sub"><span class="pat-num">No. 10-20240017321</span><span class="badge badge-app">Filed</span></p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3 class="pat-title">XAI System for Diagnosing and Explaining Cardiac Disorder</h3><span class="date">2023</span>
+        </div>
+        <p class="entry-sub"><span class="pat-num">No. 10-2571244</span><span class="badge badge-reg">Granted</span></p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3 class="pat-title">A FEATURE EXTRACTION APPARATUS AND METHOD FOR PREDICTING THE EXECUTION TIME OF THE QUERY INPUT AND OUTPUT TRACE</h3><span class="date">2021</span>
+        </div>
+        <p class="entry-sub"><span class="pat-num">No. 10-2249832</span><span class="badge badge-reg">Granted</span></p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3 class="pat-title">System for ECG Reading and method thereof</h3><span class="date">2021</span>
+        </div>
+        <p class="entry-sub"><span class="pat-num">No. 10-20210045108</span><span class="badge badge-app">Filed</span></p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3 class="pat-title">MEMORY ALLOCATION METHOD FOR TWO SPARSE MATRIX MULTIPLICATIONS USING A SINGLE MACHINE</h3><span class="date">2018</span>
+        </div>
+        <p class="entry-sub"><span class="pat-num">No. 10-1858593</span><span class="badge badge-reg">Granted</span></p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3 class="pat-title">GRAPH ENGINE USING MULTI-THREAD AND OPERATING METHOD THEREOF</h3><span class="date">2018</span>
+        </div>
+        <p class="entry-sub"><span class="pat-num">No. 10-1879829</span><span class="badge badge-reg">Granted</span></p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3 class="pat-title">A SSD PERFORMANCE EVALUATION APPARATUS AND METHOD FOR PREDICTING THE EXECUTION TIME OF THE QUERY INPUT AND OUTPUT TRACE</h3><span class="date">2016</span>
+        </div>
+        <p class="entry-sub"><span class="pat-num">No. 10-2016-0110878</span><span class="badge badge-app">Filed</span></p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3 class="pat-title">INPUT/OUTPUT INFORMATION SARER METHOD,  STORAGE APPARATUS AND HOST APPARATUS FOR PERFOMRING THE SAME METHOD</h3><span class="date">2016</span>
+        </div>
+        <p class="entry-sub"><span class="pat-num">No. 10-1691286</span><span class="badge badge-reg">Granted</span></p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3 class="pat-title">PROCESSOR SCHEDULING METHOD FOR THE COOPERATION PROCESSING BETWEEN HOST PROCESSOR AND COOPERATION PROCESSOR AND HOST PROCESSOR FOR PERFORMING THE METHOD</h3><span class="date">2015</span>
+        </div>
+        <p class="entry-sub"><span class="pat-num">No. 10-1558807</span><span class="badge badge-reg">Granted</span></p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3 class="pat-title">METHOD FOR MULTIPLICATION OF SPARSE MATRIX ON THE GPU</h3><span class="date">2014</span>
+        </div>
+        <p class="entry-sub"><span class="pat-num">No. 10-1400577</span><span class="badge badge-reg">Granted</span></p>
+      </li>
+      </ul>
+    </section>
 
-              const renderContext = {
-                canvasContext: ctx,
-                viewport: viewport,
-              };
+    <section id="service">
+      <div class="sec-label"><h2>Professional Service</h2><div class="rule"></div><span class="count">Reviewer</span></div>
+      <ul>
+      <li class="svc"><span class="svc-year">2026</span><span class="svc-list">AAAI, CIKM, ICASSP, ICLR, IJCAI, KDD, ML4H, NeurIPS, TheWebConf</span></li>
+      <li class="svc"><span class="svc-year">2025</span><span class="svc-list">CHIL, ICML, IJCAI, IJCNN, KDD, NeurIPS</span></li>
+      <li class="svc"><span class="svc-year">2024</span><span class="svc-list">AAAI, ICASSP</span></li>
+      <li class="svc"><span class="svc-year">2023</span><span class="svc-list">ICASSP</span></li>
+      </ul>
+    </section>
 
-              page.render(renderContext).promise.then(function () {
-                canvas.className = "pdf-page";
-                // Store canvas at correct index
-                canvases[pageNum - 1] = canvas;
-                renderedCount++;
+    <footer>
+      <p>Last updated: July 08, 2026 · <a href="resume.pdf" download>Download CV (PDF)</a></p>
+    </footer>
+  </main>
 
-                // If all pages rendered, append in order
-                if (renderedCount === pdf.numPages) {
-                  canvases.forEach((canvas) => {
-                    if (canvas) container.appendChild(canvas);
-                  });
-                }
-              });
-
-              // Render next page
-              renderPage(pageNum + 1);
-            });
-          }
-
-          // Start rendering from page 1
-          renderPage(1);
-        },
-        function (error) {
-          // Error loading PDF - show download option only
-          const container = document.getElementById("pdfContainer");
-          container.innerHTML =
-            '<div class="loading" style="padding: 60px 20px;"><h2 style="color: #26428b; margin-bottom: 20px;">Unable to display PDF</h2><p style="color: #666; margin-bottom: 30px;">Please download the PDF to view it.</p><a href="resume.pdf" download class="btn btn-secondary" style="display: inline-block;">⬇ Download PDF</a></div>';
-          console.error("Error loading PDF:", error);
-        }
-      );
-
-      // Set last updated date
-      document.getElementById("last-updated").textContent =
-        new Date().toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
+  <script>
+    document.querySelectorAll('.filter').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.filter').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var f = btn.getAttribute('data-f');
+        document.querySelectorAll('.pub').forEach(function (p) {
+          p.style.display = (f === 'all' || p.getAttribute('data-type') === f) ? '' : 'none';
         });
-    </script>
-  </body>
+      });
+    });
+  </script>
+</body>
 </html>
